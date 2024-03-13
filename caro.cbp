@@ -38,6 +38,8 @@
 			<Add directory="../../MinGW/SDL2_image-2.8.2/x86_64-w64-mingw32/lib" />
 			<Add directory="../../MinGW/SDL2/x86_64-w64-mingw32/lib" />
 		</Linker>
+		<Unit filename="Function.cpp" />
+		<Unit filename="Function.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
