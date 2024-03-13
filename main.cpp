@@ -1,59 +1,64 @@
 #include "Function.h"
 
+
 int main(int argc, char* args[])
 {
+	SDL_Window* window;
 	SDL_Renderer* renderer;
 	SDL_Event event;
-	bool isRunning = false;
-	int choose;
+	SDL_Texture* texture;
+	int x, y;
 
+	int choose = 0;
+	bool quit = false;
 
-	if (init() == false) return 1;
+	initSDL(window, renderer); // khoi tao man hinh window
+	texture = loadTexture("mainmenu.PNG", renderer);
+	renderTexture(texture, renderer);
 
-	while(!isRunning)
+	menu:
+	while(!quit)
 	{
-		while(SDL_PollEvent(&event))
+		SDL_PollEvent(&event);
 		{
+			SDL_GetMouseState(&x, &y);
 			switch(event.type)
 			{
 			case SDL_QUIT:
-				isRunning = false;
+				quit = true;
 				break;
 			case SDL_MOUSEBUTTONDOWN:
-				if (SDL_BUTTON_LEFT == event.button.button)
+				if(SDL_BUTTON_LEFT == event.button.button)
 				{
-					choose = clickInMenu(event, isRunning);
+
+					choose = click(x, y);
 					switch(choose)
 					{
 					case 1:
-						goto play;
+						goto oneplayer;
 						break;
 					case 2:
-						goto play;
+						goto twoplayer;
 						break;
 					case 3:
 						return 0;
 						break;
 					}
 				}
+			case SDL_MOUSEMOTION:
+				renderMenu(texture, renderer, x, y);
+				//std::cout << "Toa do chuot " << x << " : " << y << std::endl;
+				break;
+
 			}
 		}
 	}
 
-	play:
+	oneplayer:
 
-		if(choose == 2)
-		{
-			twoPLayer();
+	twoplayer:
 
-		}
-		else
-		{
-			onePlayer();
-		}
 
-	SDL_Delay(5000);
-
-	quit();
+	quitSDL(window, renderer);
 	return 0;
 }

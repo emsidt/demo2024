@@ -1,1 +1,155 @@
+#include "Function.h"
 
+SDL_Renderer* renderer;
+SDL_Texture* texture;
+//int x, y;
+
+
+void initSDL(SDL_Window* &window, SDL_Renderer* &renderer)
+{
+	if(SDL_Init(SDL_Init(SDL_INIT_VIDEO)) < 0 ){
+        std::cout << "SDL khong the khoi tao" << std::endl;
+    }
+    else{
+        window = SDL_CreateWindow("trinh duong",
+                                    SDL_WINDOWPOS_UNDEFINED,
+                                    SDL_WINDOWPOS_UNDEFINED,
+                                    SCREEN_WIDTH, SCREEN_HEIGHT,
+                                    SDL_WINDOW_SHOWN);
+        if( NULL == window ){
+        std::cout << "Window could not be created!" << std::endl;
+        }
+		else{
+        renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+		}
+	}
+}
+
+SDL_Texture* loadTexture(std::string path, SDL_Renderer* renderer)
+{
+    texture = nullptr;
+    SDL_Surface* loadedIMG = IMG_Load(path.c_str());
+    if(loadedIMG == nullptr) std::cout << 1;
+    texture = SDL_CreateTextureFromSurface(renderer, loadedIMG);
+    SDL_FreeSurface(loadedIMG);
+    return texture;
+}
+
+void renderTexture(SDL_Texture* texture,SDL_Renderer* renderer)
+{
+        SDL_RenderCopy(renderer, texture, nullptr, nullptr );
+        SDL_RenderPresent(renderer);
+        texture = nullptr;
+        SDL_free(texture);
+}
+
+void renderTexture(SDL_Texture *texture, SDL_Renderer *renderer, int x, int y, int w, int h){
+    // Thiet lap hinh vuong ma chung ta muon ve anh vao trong
+    SDL_Rect dst;
+    dst.x = x;
+    dst.y = y;
+    dst.w = w;
+    dst.h = h;
+    // Dua toan bo anh trong texture vao hinh chu nhat dich
+    SDL_RenderCopy(renderer, texture, NULL, &dst);
+    texture = nullptr;
+	SDL_free(texture);
+}
+
+void standardCoordinate(int &x, int &y)
+{
+	x = (x - 63)/34;
+	y = (y - 50)/34;
+}
+
+void initializeBoard(int a[][MAX]){
+    for( int i = 0; i < MAX; ++i){
+        for(int j = 0; j < MAX; ++j){
+            a[i][j] = 0;
+        }
+    }
+}
+
+void displayBoard(int a[][MAX]){
+    //system("cls");
+    for( int i = 0; i < MAX; ++i){
+        for(int j = 0; j < MAX; ++j){
+            std::cout << a[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
+}
+void inputPlayer(int a[][MAX], int &i, int &j, int count){
+    if(count%2 == 0){
+        a[i][j] == 1;
+    }
+    else a[i][j] = 2;
+}
+bool validMove(int x, int y, int a[][MAX]){
+    if(a[x][y] == 0 ) return true;
+    else return false;
+}
+
+void quitSDL(SDL_Window* window, SDL_Renderer* renderer)
+{
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+}
+
+int click(int &x, int &y)
+{
+	std::cout << "Toa do chuot " << x << " : " << y << std::endl;
+	if( 495 <= x && x <= 705 && 345 <= y && y <= 405 )
+	{
+		std::cout << "click 1 player" << std::endl;
+		return 1;
+	}
+	if( 495 <= x && x <= 705 && 430 <= y && y <= 490 )
+	{
+		std::cout << "click 2 player" << std::endl;
+		return 2;
+	}
+	if( 495 <= x && x <= 705 && 515 <= y && y <= 575 )
+	{
+		std::cout << "click exit" << std::endl;
+		return 3;
+	}
+	if( 300<= x && x <= 900 && 120 <= y && y <= 205 )
+	{
+		std::cout << "title" << std::endl;
+		return 4;
+	}
+
+
+}
+
+
+void renderMenu(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y)
+{
+	int tmp = click(x, y);
+	switch(tmp)
+	{
+	case 1:
+		texture = loadTexture("mainmenu1player.PNG", renderer);
+		renderTexture(texture, renderer);
+		break;
+	case 2:
+		texture = loadTexture("mainmenu2player.PNG", renderer);
+		renderTexture(texture, renderer);
+		break;
+	case 3:
+		texture = loadTexture("mainmenuexit.PNG", renderer);
+		renderTexture(texture, renderer);
+		break;
+	case 4:
+		texture = loadTexture("mainmenugamecaro.PNG", renderer);
+		renderTexture(texture, renderer);
+		break;
+	default:
+		texture = loadTexture("mainmenu.PNG", renderer);
+		renderTexture(texture, renderer);
+		break;
+	}
+
+}
