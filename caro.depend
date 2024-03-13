@@ -1,12 +1,13 @@
 # depslib dependency file v1.0
-1710330774 source:c:\file codeblocks\caro\function.cpp
+1710337080 source:c:\file codeblocks\caro\function.cpp
 	"Function.h"
 
-1710330774 c:\file codeblocks\caro\function.h
+1710333226 c:\file codeblocks\caro\function.h
 	<string>
 	<iostream>
 	<SDL.h>
 	<SDL_image.h>
+	"twopplayer.h"
 
 1706832967 c:\mingw\sdl2\x86_64-w64-mingw32\include\sdl2\sdl.h
 	"SDL_main.h"
@@ -407,8 +408,19 @@
 	"begin_code.h"
 	"close_code.h"
 
-1710330823 source:c:\file codeblocks\caro\main.cpp
+1710339605 source:c:\file codeblocks\caro\main.cpp
 	"Function.h"
+	"twopplayer.h"
 
 1710323866 c:\file codeblocks\caro\main.h
+
+1710339581 source:c:\file codeblocks\caro\twoplayer.cpp
+	"twopplayer.h"
+	"Function.h"
+
+1710339581 c:\file codeblocks\caro\twopplayer.h
+	<string>
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
 

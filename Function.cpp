@@ -62,34 +62,6 @@ void standardCoordinate(int &x, int &y)
 	y = (y - 50)/34;
 }
 
-void initializeBoard(int a[][MAX]){
-    for( int i = 0; i < MAX; ++i){
-        for(int j = 0; j < MAX; ++j){
-            a[i][j] = 0;
-        }
-    }
-}
-
-void displayBoard(int a[][MAX]){
-    //system("cls");
-    for( int i = 0; i < MAX; ++i){
-        for(int j = 0; j < MAX; ++j){
-            std::cout << a[i][j] << " ";
-        }
-        std::cout << std::endl;
-    }
-}
-void inputPlayer(int a[][MAX], int &i, int &j, int count){
-    if(count%2 == 0){
-        a[i][j] == 1;
-    }
-    else a[i][j] = 2;
-}
-bool validMove(int x, int y, int a[][MAX]){
-    if(a[x][y] == 0 ) return true;
-    else return false;
-}
-
 void quitSDL(SDL_Window* window, SDL_Renderer* renderer)
 {
     SDL_DestroyRenderer(renderer);
@@ -97,9 +69,9 @@ void quitSDL(SDL_Window* window, SDL_Renderer* renderer)
     SDL_Quit();
 }
 
-int click(int &x, int &y)
+int clickInMenu(int &x, int &y)
 {
-	std::cout << "Toa do chuot " << x << " : " << y << std::endl;
+	//std::cout << "Toa do chuot " << x << " : " << y << std::endl;
 	if( 495 <= x && x <= 705 && 345 <= y && y <= 405 )
 	{
 		std::cout << "click 1 player" << std::endl;
@@ -120,14 +92,12 @@ int click(int &x, int &y)
 		std::cout << "title" << std::endl;
 		return 4;
 	}
-
-
 }
 
 
 void renderMenu(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y)
 {
-	int tmp = click(x, y);
+	int tmp = clickInMenu(x, y);
 	switch(tmp)
 	{
 	case 1:
@@ -151,5 +121,4 @@ void renderMenu(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y)
 		renderTexture(texture, renderer);
 		break;
 	}
-
 }

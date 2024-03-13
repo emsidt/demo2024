@@ -1,5 +1,5 @@
 #include "Function.h"
-
+#include "twopplayer.h"
 
 int main(int argc, char* args[])
 {
@@ -8,8 +8,11 @@ int main(int argc, char* args[])
 	SDL_Event event;
 	SDL_Texture* texture;
 	int x, y;
+	int a[MAX][MAX];
+	int count = 0;
 
-	int choose = 0;
+	int choose = 0; // bien lua chon che do
+	int checkwin = 0; // kiem tra thang, thua, hoa
 	bool quit = false;
 
 	initSDL(window, renderer); // khoi tao man hinh window
@@ -31,7 +34,7 @@ int main(int argc, char* args[])
 				if(SDL_BUTTON_LEFT == event.button.button)
 				{
 
-					choose = click(x, y);
+					choose = clickInMenu(x, y);
 					switch(choose)
 					{
 					case 1:
@@ -47,7 +50,6 @@ int main(int argc, char* args[])
 				}
 			case SDL_MOUSEMOTION:
 				renderMenu(texture, renderer, x, y);
-				//std::cout << "Toa do chuot " << x << " : " << y << std::endl;
 				break;
 
 			}
@@ -56,8 +58,26 @@ int main(int argc, char* args[])
 
 	oneplayer:
 
-	twoplayer:
 
+
+	twoplayer:
+		//SDL_GetMouseState(&x, &y);
+		checkwin = twoPlayer(a, x, y,count, event, quit, texture, renderer);
+		goto result;
+
+	result:
+
+		switch(choose)
+		{
+			case 1:
+				switch(checkwin)
+				{
+
+				}
+				break;
+			case 2:
+				break;
+		}
 
 	quitSDL(window, renderer);
 	return 0;
