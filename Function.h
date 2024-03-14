@@ -28,6 +28,15 @@ void standardCoordinate(int &x, int &y);
 
 int clickInMenu(int &x, int &y);
 
+int clickInResult(int &x, int &y);
+
 void renderMenu(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y);
 
+void renderXWon(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y);
+
+void renderOWon(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y);
+
+void renderDraw(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y);
+
+void renderResult(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y);
 #endif // FUNCTION_H

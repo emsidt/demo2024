@@ -52,6 +52,7 @@ void renderTexture(SDL_Texture *texture, SDL_Renderer *renderer, int x, int y, i
     dst.h = h;
     // Dua toan bo anh trong texture vao hinh chu nhat dich
     SDL_RenderCopy(renderer, texture, NULL, &dst);
+    SDL_RenderPresent(renderer);
     texture = nullptr;
 	SDL_free(texture);
 }
@@ -74,26 +75,40 @@ int clickInMenu(int &x, int &y)
 	//std::cout << "Toa do chuot " << x << " : " << y << std::endl;
 	if( 495 <= x && x <= 705 && 345 <= y && y <= 405 )
 	{
-		std::cout << "click 1 player" << std::endl;
+		//std::cout << "click 1 player" << std::endl;
 		return 1;
 	}
 	if( 495 <= x && x <= 705 && 430 <= y && y <= 490 )
 	{
-		std::cout << "click 2 player" << std::endl;
+		//std::cout << "click 2 player" << std::endl;
 		return 2;
 	}
 	if( 495 <= x && x <= 705 && 515 <= y && y <= 575 )
 	{
-		std::cout << "click exit" << std::endl;
+		//std::cout << "click exit" << std::endl;
 		return 3;
 	}
 	if( 300<= x && x <= 900 && 120 <= y && y <= 205 )
 	{
-		std::cout << "title" << std::endl;
+		//std::cout << "title" << std::endl;
 		return 4;
 	}
 }
 
+int clickInResult(int &x, int &y)
+{
+	if( 480 <= x && x <= 715 && 365 <= y && y <= 435 )
+	{
+	//std::cout << "click play again" << std::endl;
+	return 1;
+	}
+	if( 480 <= x && x <= 715 && 475 <= y && y <= 545 )
+	{
+	//std::cout << "click mainmenu" << std::endl;
+	return 2;
+	}
+
+}
 
 void renderMenu(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y)
 {
@@ -119,6 +134,57 @@ void renderMenu(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y)
 	default:
 		texture = loadTexture("mainmenu.PNG", renderer);
 		renderTexture(texture, renderer);
+		break;
+	}
+}
+
+void renderXWon(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y)
+{
+	//SDL_GetMouseState(&x, &y);
+	int tmp = clickInResult(x, y);
+
+	switch(tmp)
+	{
+	case 1:
+		texture = loadTexture("xwonplayagain.PNG", renderer);
+		renderTexture(texture, renderer);
+		break;
+	case 2:
+		texture = loadTexture("xwonmainmenu.PNG", renderer);
+		renderTexture(texture, renderer);
+		break;
+	default:
+		texture = loadTexture("xwon0.PNG", renderer);
+		renderTexture(texture, renderer);
+		break;
+	}
+
+}
+
+void renderOWon(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y);
+
+void renderDraw(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y);
+
+void renderResult(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y)
+{
+	//SDL_GetMouseState(&x, &y);
+	int tmp = clickInResult(x, y);
+
+	switch(tmp)
+	{
+	case 1:
+		//std::cout << "tmp: " << tmp << std::endl;
+		texture = loadTexture("resultplayagain.PNG", renderer);
+		renderTexture(texture, renderer, 0, 340, 1200, 300);
+		break;
+	case 2:
+		//std::cout << "tmp: " << tmp << std::endl;
+		texture = loadTexture("resultmenu.PNG", renderer);
+		renderTexture(texture, renderer, 0, 340, 1200, 300);
+		break;
+	default:
+		texture = loadTexture("result0.PNG", renderer);
+		renderTexture(texture, renderer, 0, 340, 1200, 300);
 		break;
 	}
 }

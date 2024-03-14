@@ -11,7 +11,8 @@ int main(int argc, char* args[])
 	int a[MAX][MAX];
 	int count = 0;
 
-	int choose = 0; // bien lua chon che do
+	int gameMode = 0; // bien lua chon che do
+	int choose = 0;
 	int checkwin = 0; // kiem tra thang, thua, hoa
 	bool quit = false;
 
@@ -20,11 +21,57 @@ int main(int argc, char* args[])
 	renderTexture(texture, renderer);
 
 	menu:
+
 	while(!quit)
 	{
 		SDL_PollEvent(&event);
+		SDL_GetMouseState(&x, &y);
+
+		switch(event.type)
 		{
+		case SDL_QUIT:
+			quit = true;
+			break;
+		case SDL_MOUSEBUTTONDOWN:
+			if(SDL_BUTTON_LEFT == event.button.button)
+			{
+				gameMode = clickInMenu(x, y);
+				switch(gameMode)
+				{
+				case 1:
+					goto oneplayer;
+					break;
+				case 2:
+					goto twoplayer;
+					break;
+				case 3:
+					return 0;
+					break;
+				}
+			}
+		case SDL_MOUSEMOTION:
+			renderMenu(texture, renderer, x, y);
+			break;
+		}
+	}
+
+	oneplayer:
+
+		goto result;
+
+	twoplayer:
+
+		checkwin = twoPlayer(a, x, y,count, event, quit, texture, renderer);
+		std::cout << "check win = " << checkwin << std::endl;
+		goto result;
+
+	result:
+
+		while(!quit)
+		{
+			SDL_PollEvent(&event);
 			SDL_GetMouseState(&x, &y);
+
 			switch(event.type)
 			{
 			case SDL_QUIT:
@@ -33,50 +80,29 @@ int main(int argc, char* args[])
 			case SDL_MOUSEBUTTONDOWN:
 				if(SDL_BUTTON_LEFT == event.button.button)
 				{
-
-					choose = clickInMenu(x, y);
-					switch(choose)
+					choose = clickInResult(x, y);
+					switch(gameMode)
 					{
 					case 1:
-						goto oneplayer;
+						if(choose == 1)
+						{
+							goto oneplayer;
+						}
+						else goto menu;
 						break;
 					case 2:
-						goto twoplayer;
-						break;
-					case 3:
-						return 0;
+						if(choose == 1)
+						{
+							goto twoplayer;
+						}
+						else goto menu;
 						break;
 					}
 				}
 			case SDL_MOUSEMOTION:
-				renderMenu(texture, renderer, x, y);
+				renderResult(texture, renderer, x, y);
 				break;
-
 			}
-		}
-	}
-
-	oneplayer:
-
-
-
-	twoplayer:
-		//SDL_GetMouseState(&x, &y);
-		checkwin = twoPlayer(a, x, y,count, event, quit, texture, renderer);
-		goto result;
-
-	result:
-
-		switch(choose)
-		{
-			case 1:
-				switch(checkwin)
-				{
-
-				}
-				break;
-			case 2:
-				break;
 		}
 
 	quitSDL(window, renderer);

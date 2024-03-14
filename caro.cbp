@@ -41,6 +41,8 @@
 		<Unit filename="Function.cpp" />
 		<Unit filename="Function.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="twoplayer.cpp" />
+		<Unit filename="twopplayer.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

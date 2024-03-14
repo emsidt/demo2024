@@ -26,6 +26,6 @@ bool checkXWinBlock(int a[][MAX]); // chan hai dau
 bool checkOWinBlock(int a[][MAX]); //chan hai dau
 
 int twoPlayer(int a[][MAX], int &x, int &y, int &count, SDL_Event &event, bool quit, SDL_Texture* texture,
-SDL_Renderer* renderer);
+SDL_Renderer* renderer); // che do choi 2 nguoi
 
 #endif // TWOPLAYER
