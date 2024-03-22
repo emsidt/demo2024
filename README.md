@@ -1,3 +1,3 @@
-Tạo cửa sổ trò chơi và có thể click vào 2 player và exit
+Đã có thể vào chế độ 2 người chơi và kiểm tra thắng thua (chế độ chặn 2 đầu)
 
-Có thể đánh x, o nhưng chưa kiểm tra thắng thua
+[Update 22/03/2024]
