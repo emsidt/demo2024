@@ -106,7 +106,22 @@ int botPLayY()
 }
 
 
+int attackPoint(int a[][MAX])
+{
+	int val;
+	val = verticalAttackPoint(a) + horizonAttackPoint(a) + mainDiagonalAttackPoint(a) + semiDiagonalAttackPoint(a);
+	return val;
+}
+int verticalAttackPoint(int a[][MAX]);
+{
+	long totalVal = 0;
+	int allies = 0;
+	int enemies = 0;
 
+}
+int horizonAttackPoint(int a[][MAX]);
+int mainDiagonalAttackPoint(int a[][MAX]);
+int semiDiagonalAttackPoint(int a[][MAX]);
 
 
 
