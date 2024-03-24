@@ -408,7 +408,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1710421719 source:c:\file codeblocks\caro\main.cpp
+1711103441 source:c:\file codeblocks\caro\main.cpp
 	"Function.h"
 	"twopplayer.h"
 
@@ -425,12 +425,12 @@
 	<SDL.h>
 	<SDL_image.h>
 
-1711103399 source:c:\file codeblocks\caro\oneplayer.cpp
+1711188747 source:c:\file codeblocks\caro\oneplayer.cpp
 	"oneplayer.h"
 	"Function.h"
 	<ctime>
 
-1711103308 c:\file codeblocks\caro\oneplayer.h
+1711290760 c:\file codeblocks\caro\oneplayer.h
 	<string>
 	<iostream>
 	<SDL.h>

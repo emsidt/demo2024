@@ -30,4 +30,16 @@ SDL_Renderer* renderer);
 int botPlayX();
 int botPLayY();
 
+int attackPoint(int a[][MAX]);
+int verticalAttackPoint(int a[][MAX]);
+int horizonAttackPoint(int a[][MAX]);
+int mainDiagonalAttackPoint(int a[][MAX]);
+int semiDiagonalAttackPoint(int a[][MAX]);
+
+int defensePoint(int a[][MAX]);
+int verticalDefensePoint(int a[][MAX]);
+int horizonDefensePoint(int a[][MAX]);
+int mainDiagonalDefensePoint(int a[][MAX]);
+int semiDiagonalDefensePoint(int a[][MAX]);
+
 #endif // ONEPLAYER_H
