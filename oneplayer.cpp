@@ -72,6 +72,7 @@ SDL_Renderer* renderer)
 						SDL_Texture* tx1 = loadTexture("ocell.png", renderer);
 						renderTexture(tx1, renderer, x*34+4+63+x/6, y*34+4+50, 25, 25);
 						SDL_RenderPresent(renderer);
+						SDL_Delay(200);
 						count++;
 						if(checkOWinBlock(a))
 						{
@@ -112,16 +113,25 @@ int attackPoint(int a[][MAX])
 	val = verticalAttackPoint(a) + horizonAttackPoint(a) + mainDiagonalAttackPoint(a) + semiDiagonalAttackPoint(a);
 	return val;
 }
-int verticalAttackPoint(int a[][MAX]);
+int verticalAttackPoint(int a[][MAX])
 {
 	long totalVal = 0;
 	int allies = 0;
 	int enemies = 0;
 
 }
-int horizonAttackPoint(int a[][MAX]);
-int mainDiagonalAttackPoint(int a[][MAX]);
-int semiDiagonalAttackPoint(int a[][MAX]);
+int horizonAttackPoint(int a[][MAX])
+{
+
+}
+int mainDiagonalAttackPoint(int a[][MAX])
+{
+
+}
+int semiDiagonalAttackPoint(int a[][MAX])
+{
+
+}
 
 
 
@@ -165,7 +175,7 @@ void inputPlayer(int a[][MAX], int &x, int &y, int count){
 }
 
 bool validMove(int x, int y, int a[][MAX]){
-    if(a[y][x] == 0 ) return true;
+    if(a[y][x] == 0 && x <= 15 && y <= 15) return true;
     else return false;
 }
 
