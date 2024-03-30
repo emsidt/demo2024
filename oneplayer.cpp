@@ -149,6 +149,9 @@ int semiDiagonalAttackPoint(int a[][MAX])
 
 
 
+
+
+
 void initializeBoard(int a[][MAX]){
     for( int i = 0; i < MAX; ++i){
         for(int j = 0; j < MAX; ++j){
