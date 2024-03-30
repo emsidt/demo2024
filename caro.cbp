@@ -41,6 +41,8 @@
 		<Unit filename="Function.cpp" />
 		<Unit filename="Function.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="music.cpp" />
+		<Unit filename="music.h" />
 		<Unit filename="oneplayer.cpp" />
 		<Unit filename="oneplayer.h" />
 		<Unit filename="twoplayer.cpp" />
