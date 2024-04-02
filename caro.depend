@@ -408,9 +408,10 @@
 	"begin_code.h"
 	"close_code.h"
 
-1711103441 source:c:\file codeblocks\caro\main.cpp
+1712063294 source:c:\file codeblocks\caro\main.cpp
 	"Function.h"
 	"twopplayer.h"
+	"oneplayer.h"
 
 1710323866 c:\file codeblocks\caro\main.h
 
@@ -418,23 +419,31 @@
 	"twopplayer.h"
 	"Function.h"
 
-1711103307 c:\file codeblocks\caro\twopplayer.h
-	"oneplayer.h"
+1712063220 c:\file codeblocks\caro\twopplayer.h
 	<string>
 	<iostream>
 	<SDL.h>
 	<SDL_image.h>
+	"game_func.h"
 
-1711789893 source:c:\file codeblocks\caro\oneplayer.cpp
+1712063220 source:c:\file codeblocks\caro\oneplayer.cpp
 	"oneplayer.h"
+	"game_func.h"
 	"Function.h"
 	<ctime>
 
-1711290760 c:\file codeblocks\caro\oneplayer.h
+1712063220 c:\file codeblocks\caro\oneplayer.h
 	<string>
 	<iostream>
 	<SDL.h>
 	<SDL_image.h>
+	"game_func.h"
 
 1711784307 source:c:\file codeblocks\caro\music.cpp
+
+1712063220 c:\file codeblocks\caro\game_func.h
+
+1712063351 source:c:\file codeblocks\caro\game_func.cpp
+	"Function.h"
+	<ctime>
 

@@ -1,5 +1,6 @@
 #include "Function.h"
 #include "twopplayer.h"
+#include "oneplayer.h"
 
 int main(int argc, char* args[])
 {
