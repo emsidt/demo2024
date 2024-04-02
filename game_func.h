@@ -2,7 +2,6 @@
 #define _GAMEFUNC__H
 
 const int MAX = 16;
-
 struct Move
 {
 	int x;
@@ -28,16 +27,15 @@ bool checkOWinBlock(int a[][MAX]); //chan hai dau
 int botPlayX();
 int botPLayY();
 
-int attackPoint(int a[][MAX]);
-int verticalAttackPoint(int a[][MAX]);
-int horizonAttackPoint(int a[][MAX]);
-int mainDiagonalAttackPoint(int a[][MAX]);
-int semiDiagonalAttackPoint(int a[][MAX]);
 
-int defensePoint(int a[][MAX]);
-int verticalDefensePoint(int a[][MAX]);
-int horizonDefensePoint(int a[][MAX]);
-int mainDiagonalDefensePoint(int a[][MAX]);
-int semiDiagonalDefensePoint(int a[][MAX]);
+int verticalAttackPoint(int i, int j);
+int horizonAttackPoint(int i, int j);
+int mainDiagonalAttackPoint(int i, int j);
+int semiDiagonalAttackPoint(int i, int j);
+
+int verticalDefensePoint(int i, int j);
+int horizonDefensePoint(int i, int j);
+int mainDiagonalDefensePoint(int i, int j);
+int semiDiagonalDefensePoint(int i, int j);
 
 #endif // _GAMEFUNC__H

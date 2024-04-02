@@ -16,38 +16,40 @@ int botPLayY()
 }
 
 
-int attackPoint(int a[][MAX])
-{
-	int val;
-	val = verticalAttackPoint(a) + horizonAttackPoint(a) + mainDiagonalAttackPoint(a) + semiDiagonalAttackPoint(a);
-	return val;
-}
-int verticalAttackPoint(int a[][MAX])
-{
-	long totalVal = 0;
-	int allies = 0;
-	int enemies = 0;
 
-}
-int horizonAttackPoint(int a[][MAX])
+long verticalAttackPoint(int i, int j)
 {
 
 }
-int mainDiagonalAttackPoint(int a[][MAX])
+long horizonAttackPoint(int i, int j)
 {
 
 }
-int semiDiagonalAttackPoint(int a[][MAX])
+long mainDiagonalAttackPoint(int i, int j)
+{
+
+}
+long semiDiagonalAttackPoint(int i, int j)
 {
 
 }
 
+long verticalDefensePoint(int i, int j)
+{
 
+}
+long horizonDefensePoint(int i, int j)
+{
 
+}
+int mainDiagonalDefensePoint(int i, int j)
+{
 
+}
+long semiDiagonalDefensePoint(int i, int j)
+{
 
-
-
+}
 
 
 

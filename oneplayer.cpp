@@ -2,6 +2,8 @@
 #include "game_func.h"
 #include "Function.h"
 #include <ctime>
+#include <cmath>
+#include <algorithm>
 
 int onePlayer(int a[][MAX], int &x, int &y, int &count, SDL_Event &event, bool quit, SDL_Texture* texture,
 SDL_Renderer* renderer)
@@ -92,7 +94,45 @@ SDL_Renderer* renderer)
 
 }
 
+Move findBestMove(int a[][MAX])
+{
+	Move bestMove;
+	bestMove.x = 0;
+	bestMove.y = 0;
+	long moveMaxVal = 0;
 
+	for (int i = 0; i < MAX; ++i)
+	{
+		for (int j = 0; j < MAX; ++j)
+		{
+			if (a[i][j] == 0)
+			{
+				long attackVal
+				= verticalAttackPoint(i, j)
+				+ horizonAttackPoint(i, j)
+				+ semiDiagonalAttackPoint(i, j)
+				+ mainDiagonalAttackPoint(i, j);
+
+				long defenseVal
+				= verticalDefensePoint(i, j)
+				+ horizonDefensePoint(i, j)
+				+ semiDiagonalDefensePoint(i, j)
+				+ mainDiagonalDefensePoint(i, j);
+
+				long tempVal;
+				if (attackVal > defenseVal) tempVal = attackVal;
+				else tempVal = defenseVal;
+
+				if (moveMaxVal < tempVal)
+				{
+					moveMaxVal = tempVal;
+					bestMove.y = i;
+					bestMove.x = j;
+				}
+			}
+		}
+	}
+}
 
 
 
