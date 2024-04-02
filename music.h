@@ -1,5 +1,5 @@
-#ifndef MUSIC_H
-#define MUSIC_H
+#ifndef __MUSIC_H
+#define __MUSIC_H
 
 
-#endif // MUSIC_H
+#endif // __MUSIC_H

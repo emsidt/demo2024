@@ -1,5 +1,5 @@
-#ifndef ONEPLAYER_H
-#define ONEPLAYER_H
+#ifndef _ONEPLAYER__H
+#define _ONEPLAYER__H
 
 #include <string>
 #include <iostream>
@@ -42,4 +42,4 @@ int horizonDefensePoint(int a[][MAX]);
 int mainDiagonalDefensePoint(int a[][MAX]);
 int semiDiagonalDefensePoint(int a[][MAX]);
 
-#endif // ONEPLAYER_H
+#endif // _ONEPLAYER__H

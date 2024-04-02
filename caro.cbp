@@ -42,6 +42,8 @@
 		</Linker>
 		<Unit filename="Function.cpp" />
 		<Unit filename="Function.h" />
+		<Unit filename="game_func.cpp" />
+		<Unit filename="game_func.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="music.cpp" />
 		<Unit filename="music.h" />
