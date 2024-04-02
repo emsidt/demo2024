@@ -5,8 +5,10 @@
 #include <cmath>
 #include <algorithm>
 
-int onePlayer(int a[][MAX], int &x, int &y, int &count, SDL_Event &event, bool quit, SDL_Texture* texture,
-SDL_Renderer* renderer)
+int onePlayer(int a[][MAX], int &x, int &y, int &count,
+			SDL_Event &event, bool quit,
+			SDL_Texture* texture,
+			SDL_Renderer* renderer)
 {
 	count = 0;
 	initializeBoard(a);
@@ -61,11 +63,16 @@ SDL_Renderer* renderer)
 				}
 			}
 			botPLay:
-				x = botPlayX();
-				y = botPLayY();
+				Move bot;
+				bot = findBestMove(a);
+				std::cout << bot.x << " " << bot.y << std::endl;
+				x = bot.x;
+				y = bot.y;
+				//x = botPlayX();
+				//y = botPLayY();
 				//std::cout << "Bot " << x << " : " << y << std::endl;
-				standardCoordinate(x, y);
-				std::cout << "Toa do bot : " << x << " " << y << std::endl;
+				//standardCoordinate(x, y);
+				//std::cout << "Toa do bot : " << x << " " << y << std::endl;
 				if (validMove(x, y, a))
 				{
 					if(count % 2 != 0)
@@ -90,7 +97,6 @@ SDL_Renderer* renderer)
 				else goto botPLay;
 				goto humanPlay;
 	}
-	//std::cout << "flag" << std::endl;
 
 }
 
@@ -108,16 +114,16 @@ Move findBestMove(int a[][MAX])
 			if (a[i][j] == 0)
 			{
 				long attackVal
-				= verticalAttackPoint(i, j)
-				+ horizonAttackPoint(i, j)
-				+ semiDiagonalAttackPoint(i, j)
-				+ mainDiagonalAttackPoint(i, j);
+				= verticalAttackPoint(i, j, a)
+				+ horizonAttackPoint(i, j, a)
+				+ semiDiagonalAttackPoint(i, j, a)
+				+ mainDiagonalAttackPoint(i, j, a);
 
 				long defenseVal
-				= verticalDefensePoint(i, j)
-				+ horizonDefensePoint(i, j)
-				+ semiDiagonalDefensePoint(i, j)
-				+ mainDiagonalDefensePoint(i, j);
+				= verticalDefensePoint(i, j, a)
+				+ horizonDefensePoint(i, j, a)
+				+ semiDiagonalDefensePoint(i, j, a)
+				+ mainDiagonalDefensePoint(i, j, a);
 
 				long tempVal;
 				if (attackVal > defenseVal) tempVal = attackVal;
@@ -128,10 +134,12 @@ Move findBestMove(int a[][MAX])
 					moveMaxVal = tempVal;
 					bestMove.y = i;
 					bestMove.x = j;
+					std::cout << "movemaxval: "<< moveMaxVal << std::endl;
 				}
 			}
 		}
 	}
+	return bestMove;
 }
 
 

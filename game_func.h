@@ -2,6 +2,9 @@
 #define _GAMEFUNC__H
 
 const int MAX = 16;
+const long defensePoint[7] = { 0, 1, 9, 81, 729, 6561, 59049 };
+const long attackPoint[7] = { 0, 3, 24, 192, 1536, 12288, 98304 };
+
 struct Move
 {
 	int x;
@@ -28,14 +31,14 @@ int botPlayX();
 int botPLayY();
 
 
-int verticalAttackPoint(int i, int j);
-int horizonAttackPoint(int i, int j);
-int mainDiagonalAttackPoint(int i, int j);
-int semiDiagonalAttackPoint(int i, int j);
+long verticalAttackPoint(int x, int y,int a[][MAX]);
+long horizonAttackPoint(int x, int y,int a[][MAX]);
+long mainDiagonalAttackPoint(int x, int y,int a[][MAX]);
+long semiDiagonalAttackPoint(int x, int y,int a[][MAX]);
 
-int verticalDefensePoint(int i, int j);
-int horizonDefensePoint(int i, int j);
-int mainDiagonalDefensePoint(int i, int j);
-int semiDiagonalDefensePoint(int i, int j);
+long verticalDefensePoint(int x, int y,int a[][MAX]);
+long horizonDefensePoint(int x, int y,int a[][MAX]);
+long mainDiagonalDefensePoint(int x, int y,int a[][MAX]);
+long semiDiagonalDefensePoint(int x, int y,int a[][MAX]);
 
 #endif // _GAMEFUNC__H
