@@ -32,11 +32,13 @@
 			<Add option="-Wall" />
 			<Add directory="../../MinGW/SDL2/x86_64-w64-mingw32/include/SDL2" />
 			<Add directory="../../MinGW/SDL2_image-2.8.2/x86_64-w64-mingw32/include/SDL2" />
+			<Add directory="../../MinGW/SDL2_mixer-devel-2.8.0-mingw/SDL2_mixer-2.8.0/x86_64-w64-mingw32/include/SDL2" />
 		</Compiler>
 		<Linker>
-			<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_image" />
+			<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_mixer" />
 			<Add directory="../../MinGW/SDL2_image-2.8.2/x86_64-w64-mingw32/lib" />
 			<Add directory="../../MinGW/SDL2/x86_64-w64-mingw32/lib" />
+			<Add directory="../../MinGW/SDL2_mixer-devel-2.8.0-mingw/SDL2_mixer-2.8.0/x86_64-w64-mingw32/lib" />
 		</Linker>
 		<Unit filename="Function.cpp" />
 		<Unit filename="Function.h" />

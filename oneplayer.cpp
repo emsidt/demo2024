@@ -69,10 +69,11 @@ SDL_Renderer* renderer)
 					{
 						a[y][x] = 2;
 						displayBoard(a);
+						SDL_Delay(200);
 						SDL_Texture* tx1 = loadTexture("ocell.png", renderer);
 						renderTexture(tx1, renderer, x*34+4+63+x/6, y*34+4+50, 25, 25);
 						SDL_RenderPresent(renderer);
-						SDL_Delay(200);
+
 						count++;
 						if(checkOWinBlock(a))
 						{
