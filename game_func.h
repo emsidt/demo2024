@@ -3,6 +3,12 @@
 
 const int MAX = 16;
 
+struct Move
+{
+	int x;
+	int y;
+};
+
 void initializeBoard(int a[][MAX]); // khoi tao ban choi
 
 void displayBoard(int a[][MAX]); // hien thi ban choi tren terminal

@@ -11,7 +11,6 @@ const int SCREEN_WIDTH = 1200;
 const int SCREEN_HEIGHT = 640;
 
 
-
 void initSDL(SDL_Window* &window, SDL_Renderer* &renderer); // khoi tao cua so va but ve
 
 void quitSDL(SDL_Window* window, SDL_Renderer* renderer); // giai phong
