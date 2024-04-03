@@ -42,6 +42,7 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 							{
 								a[y][x] = 1;
 								displayBoard(a);
+								std::cout << std::endl;
 								SDL_Texture* tx1 = loadTexture("xcell.png", renderer);
 								renderTexture(tx1, renderer, x*34+4+63+x/6, y*34+4+50, 25, 25);
 								SDL_RenderPresent(renderer);
@@ -56,30 +57,24 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 							}
 						}
 						else goto humanPlay;
-
 					}
 				}
 			}
 		break;
 	}
 	botPLay:
-				std::cout << "flag" << std::endl;
 				Move bot;
 				bot = findBestMove(a);
-				std::cout << bot.x << " " << bot.y << std::endl;
+				//std::cout << bot.x << " " << bot.y << std::endl;
 				x = bot.x;
 				y = bot.y;
-				//x = botPlayX();
-				//y = botPLayY();
-				//std::cout << "Bot " << x << " : " << y << std::endl;
-				//standardCoordinate(x, y);
-				//std::cout << "Toa do bot : " << x << " " << y << std::endl;
 				if (validMove(x, y, a))
 				{
 					if(count % 2 != 0)
 					{
 						a[y][x] = 2;
 						displayBoard(a);
+						std::cout << std::endl;
 						SDL_Delay(200);
 						SDL_Texture* tx1 = loadTexture("ocell.png", renderer);
 						renderTexture(tx1, renderer, x*34+4+63+x/6, y*34+4+50, 25, 25);
@@ -126,8 +121,14 @@ Move findBestMove(int a[][MAX])
 				+ mainDiagonalDefensePoint(i, j, a);
 
 				long tempVal;
-				if (attackVal > defenseVal) tempVal = attackVal;
-				else tempVal = defenseVal;
+				if (attackVal > defenseVal)
+				{
+					 tempVal = attackVal;
+				}
+				else
+				{
+					tempVal = defenseVal;
+				}
 
 				if (moveMaxVal < tempVal)
 				{
@@ -139,7 +140,7 @@ Move findBestMove(int a[][MAX])
 			}
 		}
 	}
-	std::cout << "movemaxval: "<< moveMaxVal << std::endl;
+	//std::cout << "movemaxval: "<< moveMaxVal << std::endl;
 	return bestMove;
 }
 

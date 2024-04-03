@@ -426,7 +426,7 @@
 	<SDL_image.h>
 	"game_func.h"
 
-1712075739 source:c:\file codeblocks\caro\oneplayer.cpp
+1712111721 source:c:\file codeblocks\caro\oneplayer.cpp
 	"oneplayer.h"
 	"game_func.h"
 	"Function.h"
@@ -445,7 +445,7 @@
 
 1712072825 c:\file codeblocks\caro\game_func.h
 
-1712108963 source:c:\file codeblocks\caro\game_func.cpp
+1712111953 source:c:\file codeblocks\caro\game_func.cpp
 	"Function.h"
 	<ctime>
 
