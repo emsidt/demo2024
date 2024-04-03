@@ -15,6 +15,36 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 	texture = loadTexture("play0.PNG", renderer);
 	renderTexture(texture, renderer);
 
+	botPLay:
+				Move bot;
+				bot = findBestMove(a);
+				//std::cout << bot.x << " " << bot.y << std::endl;
+				x = bot.x;
+				y = bot.y;
+				if (validMove(x, y, a))
+				{
+					if(count % 2 == 0)
+					{
+						a[y][x] = 1;
+						displayBoard(a);
+						std::cout << std::endl;
+						SDL_Delay(200);
+						SDL_Texture* tx1 = loadTexture("xcell.png", renderer);
+						renderTexture(tx1, renderer, x*34+4+63+x/6, y*34+4+50, 25, 25);
+						SDL_RenderPresent(renderer);
+
+						count++;
+						if(checkXWinBlock(a))
+						{
+							std::cout << "o won" << std::endl;
+							SDL_Texture* tx2 = loadTexture("xwon0.PNG", renderer);
+							renderTexture(tx2, renderer);
+							return 2;
+						}
+					}
+				}
+				else goto botPLay;
+				goto humanPlay;
 	humanPlay:
 	while(!quit)
 	{
@@ -38,19 +68,19 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 						if(validMove(x, y, a))
 						{
 
-							if(count % 2 == 0)
+							if(count % 2 != 0)
 							{
-								a[y][x] = 1;
+								a[y][x] = 2;
 								displayBoard(a);
 								std::cout << std::endl;
-								SDL_Texture* tx1 = loadTexture("xcell.png", renderer);
+								SDL_Texture* tx1 = loadTexture("ocell.png", renderer);
 								renderTexture(tx1, renderer, x*34+4+63+x/6, y*34+4+50, 25, 25);
 								SDL_RenderPresent(renderer);
 								count++;
-								if(checkXWinBlock(a))
+								if(checkOWinBlock(a))
 								{
 									std::cout << "x won" << std::endl;
-									SDL_Texture* tx2 = loadTexture("xwon0.PNG", renderer);
+									SDL_Texture* tx2 = loadTexture("owon0.PNG", renderer);
 									renderTexture(tx2, renderer);
 									return 1;
 								}
@@ -60,46 +90,17 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 					}
 				}
 			}
+		goto botPLay;
 		break;
 	}
-	botPLay:
-				Move bot;
-				bot = findBestMove(a);
-				//std::cout << bot.x << " " << bot.y << std::endl;
-				x = bot.x;
-				y = bot.y;
-				if (validMove(x, y, a))
-				{
-					if(count % 2 != 0)
-					{
-						a[y][x] = 2;
-						displayBoard(a);
-						std::cout << std::endl;
-						SDL_Delay(200);
-						SDL_Texture* tx1 = loadTexture("ocell.png", renderer);
-						renderTexture(tx1, renderer, x*34+4+63+x/6, y*34+4+50, 25, 25);
-						SDL_RenderPresent(renderer);
-
-						count++;
-						if(checkOWinBlock(a))
-						{
-							std::cout << "o won" << std::endl;
-							SDL_Texture* tx2 = loadTexture("owon0.PNG", renderer);
-							renderTexture(tx2, renderer);
-							return 2;
-						}
-					}
-				}
-				else goto botPLay;
-				goto humanPlay;
 
 }
 
 Move findBestMove(int a[][MAX])
 {
 	Move bestMove;
-	bestMove.x = 0;
-	bestMove.y = 0;
+	bestMove.x = 7;
+	bestMove.y = 7;
 	long moveMaxVal = 0;
 
 	for (int i = 0; i < MAX; ++i)
