@@ -57,12 +57,13 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 						}
 						else goto humanPlay;
 
-
-
 					}
 				}
 			}
-			botPLay:
+		break;
+	}
+	botPLay:
+				std::cout << "flag" << std::endl;
 				Move bot;
 				bot = findBestMove(a);
 				std::cout << bot.x << " " << bot.y << std::endl;
@@ -96,7 +97,6 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 				}
 				else goto botPLay;
 				goto humanPlay;
-	}
 
 }
 
@@ -134,11 +134,12 @@ Move findBestMove(int a[][MAX])
 					moveMaxVal = tempVal;
 					bestMove.y = i;
 					bestMove.x = j;
-					std::cout << "movemaxval: "<< moveMaxVal << std::endl;
+
 				}
 			}
 		}
 	}
+	std::cout << "movemaxval: "<< moveMaxVal << std::endl;
 	return bestMove;
 }
 
