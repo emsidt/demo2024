@@ -143,6 +143,7 @@ Move findBestMove(int a[][MAX])
 	}
 	//std::cout << "movemaxval: "<< moveMaxVal << std::endl;
 	return bestMove;
+	std::cout << bestMove.x << " " << bestMove.y << std::endl;
 }
 
 

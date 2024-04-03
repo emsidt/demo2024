@@ -25,11 +25,11 @@ long verticalAttackPoint(int x, int y,int a[][MAX])
 
 	for (int i = 1; i < 6 && x + i < MAX; ++i)
 	{
-		if (a[x+i][y] == 2)
+		if (a[x+i][y] == 1)
 		{
 			allies++;
 		}
-		else if (a[x+i][y] == 1)
+		else if (a[x+i][y] == 2)
 		{
 			enemies++;
 			break;
@@ -38,11 +38,11 @@ long verticalAttackPoint(int x, int y,int a[][MAX])
 	}
 	for (int i = 1; i < 6 && x - i >= 0; i++)
 	{
-		if (a[x-i][y] == 2)
+		if (a[x-i][y] == 1)
 		{
 			allies++;
 		}
-		else if (a[x-i][y] == 1)
+		else if (a[x-i][y] == 2)
 		{
 			enemies++;
 			break;
@@ -65,11 +65,11 @@ long horizonAttackPoint(int x, int y,int a[][MAX])
 
 	for (int i = 1; i < 6 && y + i < MAX; ++i)
 	{
-		if (a[x][y+i] == 2)
+		if (a[x][y+i] == 1)
 		{
 			allies++;
 		}
-		else if (a[x][y+i] == 1)
+		else if (a[x][y+i] == 2)
 		{
 			enemies++;
 			break;
@@ -79,11 +79,11 @@ long horizonAttackPoint(int x, int y,int a[][MAX])
 	}
 	for (int i = 1; i < 6 && y - i >= 0; i++)
 	{
-		if (a[x][y-i] == 2)
+		if (a[x][y-i] == 1)
 		{
 			allies++;
 		}
-		else if (a[x][y-i] == 1)
+		else if (a[x][y-i] == 2)
 		{
 			enemies++;
 			break;
@@ -105,11 +105,11 @@ long mainDiagonalAttackPoint(int x, int y,int a[][MAX])
 	for (int i = 1; i < 6 && x + i < MAX && y + i < MAX; i++)
 	{
 
-		if (a[x + i][y + i] == 2)
+		if (a[x + i][y + i] == 1)
 		{
 			allies++;
 		}
-		else if (a[x + i][y + i] == 1)
+		else if (a[x + i][y + i] == 2)
 		{
 			enemies++;
 			break;
@@ -124,11 +124,11 @@ long mainDiagonalAttackPoint(int x, int y,int a[][MAX])
 	for (int i = 1; i < 6 && x - i >= 0 && y - i >= 0; i++)
 	{
 
-		if (a[x - i][y - i] == 2)
+		if (a[x - i][y - i] == 1)
 		{
 			allies++;
 		}
-		else if (a[x - i][y - i] == 1)
+		else if (a[x - i][y - i] == 2)
 		{
 
 			enemies++;
@@ -156,11 +156,11 @@ long semiDiagonalAttackPoint(int x, int y,int a[][MAX])
 	for (int i = 1; i < 6 && x - i < MAX && y + i < MAX; i++)
 	{
 
-		if (a[x - i][y + i] == 2)
+		if (a[x - i][y + i] == 1)
 		{
 			allies++;
 		}
-		else if (a[x + i][y + i] == 1)
+		else if (a[x + i][y + i] == 2)
 		{
 			enemies++;
 			break;
@@ -175,11 +175,11 @@ long semiDiagonalAttackPoint(int x, int y,int a[][MAX])
 	for (int i = 1; i < 6 && x - i >= 0 && y - i >= 0; i++)
 	{
 
-		if (a[x - i][y - i] == 2)
+		if (a[x - i][y - i] == 1)
 		{
 			allies++;
 		}
-		else if (a[x - i][y - i] == 1)
+		else if (a[x - i][y - i] == 2)
 		{
 
 			enemies++;
@@ -206,12 +206,12 @@ long verticalDefensePoint(int x, int y,int a[][MAX])
 
 	for (int i = 1; i < 6 && x + i < MAX; ++i)
 	{
-		if (a[x+i][y] == 2)
+		if (a[x+i][y] == 1)
 		{
 			allies++;
 			break;
 		}
-		else if (a[x+i][y] == 1)
+		else if (a[x+i][y] == 2)
 		{
 			enemies++;
 		}
@@ -219,12 +219,12 @@ long verticalDefensePoint(int x, int y,int a[][MAX])
 	}
 	for (int i = 1; i < 6 && x - i >= 0; i++)
 	{
-		if (a[x-i][y] == 2)
+		if (a[x-i][y] == 1)
 		{
 			allies++;
 			break;
 		}
-		else if (a[x-i][y] == 1)
+		else if (a[x-i][y] == 2)
 		{
 			enemies++;
 		}
@@ -243,12 +243,12 @@ long horizonDefensePoint(int x, int y,int a[][MAX])
 
 	for (int i = 1; i < 6 && y + i < MAX; ++i)
 	{
-		if (a[x][y+i] == 2)
+		if (a[x][y+i] == 1)
 		{
 			allies++;
 			break;
 		}
-		else if (a[x][y+i] == 1)
+		else if (a[x][y+i] == 2)
 		{
 			enemies++;
 		}
@@ -256,12 +256,12 @@ long horizonDefensePoint(int x, int y,int a[][MAX])
 	}
 	for (int i = 1; i < 6 && y - i >= 0; i++)
 	{
-		if (a[x][y-i] == 2)
+		if (a[x][y-i] == 1)
 		{
 			allies++;
 			break;
 		}
-		else if (a[x][y-i] == 1)
+		else if (a[x][y-i] == 2)
 		{
 			enemies++;
 		}
@@ -280,12 +280,12 @@ long mainDiagonalDefensePoint(int x, int y,int a[][MAX])
 	for (int i = 1; i < 6 && x + i < MAX && y + i < MAX; i++)
 	{
 
-		if (a[x + i][y + i] == 2)
+		if (a[x + i][y + i] == 1)
 		{
 			allies++;
 			break;
 		}
-		else if (a[x + i][y + i] == 1)
+		else if (a[x + i][y + i] == 2)
 		{
 			enemies++;
 		}
@@ -299,12 +299,12 @@ long mainDiagonalDefensePoint(int x, int y,int a[][MAX])
 	for (int i = 1; i < 6 && x - i >= 0 && y - i >= 0; i++)
 	{
 
-		if (a[x - i][y - i] == 2)
+		if (a[x - i][y - i] == 1)
 		{
 			allies++;
 			break;
 		}
-		else if (a[x - i][y - i] == 1)
+		else if (a[x - i][y - i] == 2)
 		{
 
 			enemies++;
@@ -328,12 +328,12 @@ long semiDiagonalDefensePoint(int x, int y,int a[][MAX])
 	for (int i = 1; i < 6 && x - i < MAX && y + i < MAX; i++)
 	{
 
-		if (a[x - i][y + i] == 2)
+		if (a[x - i][y + i] == 1)
 		{
 			allies++;
 			break;
 		}
-		else if (a[x + i][y + i] == 1)
+		else if (a[x - i][y + i] == 2)
 		{
 			enemies++;
 		}
@@ -347,12 +347,12 @@ long semiDiagonalDefensePoint(int x, int y,int a[][MAX])
 	for (int i = 1; i < 6 && x - i >= 0 && y - i >= 0; i++)
 	{
 
-		if (a[x - i][y - i] == 2)
+		if (a[x + i][y - i] == 1)
 		{
 			allies++;
 			break;
 		}
-		else if (a[x - i][y - i] == 1)
+		else if (a[x + i][y - i] == 2)
 		{
 
 			enemies++;
@@ -364,8 +364,7 @@ long semiDiagonalDefensePoint(int x, int y,int a[][MAX])
 		}
 	}
 
-	totalVal -= defensePoint[enemies + 1];
-	totalVal += attackPoint[allies];
+	totalVal += defensePoint[enemies + 1];
 
 	return totalVal;
 }
