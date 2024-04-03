@@ -5,7 +5,7 @@ Chế độ hai người chơi:
 
 Chế độ chơi với máy:
 
-  - Máy sử dụng thuận toán để tìm nước đi tốt nhất (Chưa tối ưu)
+  - Máy sử dụng thuận toán leo đồi để tìm nước đi tốt nhất (Chưa tối ưu)
   - Chế độ mặc định là chặn hai đầu
 
 
