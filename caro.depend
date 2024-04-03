@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1710423550 source:c:\file codeblocks\caro\function.cpp
+1712151065 source:c:\file codeblocks\caro\function.cpp
 	"Function.h"
 
-1712063803 c:\file codeblocks\caro\function.h
+1712151055 c:\file codeblocks\caro\function.h
 	<string>
 	<iostream>
 	<SDL.h>
@@ -408,14 +408,14 @@
 	"begin_code.h"
 	"close_code.h"
 
-1712063294 source:c:\file codeblocks\caro\main.cpp
+1712151075 source:c:\file codeblocks\caro\main.cpp
 	"Function.h"
 	"twopplayer.h"
 	"oneplayer.h"
 
 1710323866 c:\file codeblocks\caro\main.h
 
-1711103308 source:c:\file codeblocks\caro\twoplayer.cpp
+1712151726 source:c:\file codeblocks\caro\twoplayer.cpp
 	"twopplayer.h"
 	"Function.h"
 
@@ -426,7 +426,7 @@
 	<SDL_image.h>
 	"game_func.h"
 
-1712118831 source:c:\file codeblocks\caro\oneplayer.cpp
+1712151611 source:c:\file codeblocks\caro\oneplayer.cpp
 	"oneplayer.h"
 	"game_func.h"
 	"Function.h"
@@ -445,7 +445,7 @@
 
 1712072825 c:\file codeblocks\caro\game_func.h
 
-1712118788 source:c:\file codeblocks\caro\game_func.cpp
+1712142236 source:c:\file codeblocks\caro\game_func.cpp
 	"Function.h"
 	<ctime>
 

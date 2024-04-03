@@ -110,6 +110,14 @@ int clickInResult(int &x, int &y)
 
 }
 
+int clickInPlay(int &x, int &y)
+{
+	if( 1085 <= x && x <= 1165 && 25 <= y && y <= 70 )
+	{
+		return 1;
+	}
+}
+
 void renderMenu(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y)
 {
 	int tmp = clickInMenu(x, y);

@@ -28,9 +28,9 @@ SDL_Renderer* renderer)
 				SDL_GetMouseState(&x, &y);
 				if( 75 <= x && x <= 620 && 50 <= y && y <= 590 )
 				{
-					std::cout << "Toa do chuot " << x << " : " << y << std::endl;
+					//std::cout << "Toa do chuot " << x << " : " << y << std::endl;
 					standardCoordinate(x, y);
-					std::cout << "Toa do chuan hoa " << y << " : " << x << std::endl;
+					//std::cout << "Toa do chuan hoa " << y << " : " << x << std::endl;
 					//inputPlayer(a, x, y, count);
 					if(validMove(x, y, a))
 					{
@@ -83,6 +83,13 @@ SDL_Renderer* renderer)
 					}
 				}
 			}
+		case SDL_MOUSEMOTION:
+			SDL_GetMouseState(&x, &y);
+			if( 1085 <= x && x <= 1165 && 25 <= y && y <= 70 )
+				{
+					std::cout << "back" << std::endl;
+				}
+			break;
 		}
 	}
 }

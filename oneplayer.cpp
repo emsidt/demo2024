@@ -17,7 +17,16 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 
 	botPLay:
 				Move bot;
-				bot = findBestMove(a);
+				if(count == 0)
+				{
+					bot.x = 7;
+					bot.y = 7;
+				}
+				else
+				{
+					bot = findBestMove(a);
+				}
+
 				//std::cout << bot.x << " " << bot.y << std::endl;
 				x = bot.x;
 				y = bot.y;
@@ -36,7 +45,8 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 						count++;
 						if(checkXWinBlock(a))
 						{
-							std::cout << "o won" << std::endl;
+							SDL_Delay(2000);
+							//std::cout << "o won" << std::endl;
 							SDL_Texture* tx2 = loadTexture("xwon0.PNG", renderer);
 							renderTexture(tx2, renderer);
 							return 2;
@@ -48,7 +58,6 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 	humanPlay:
 	while(!quit)
 	{
-			srand(time(nullptr));
 			SDL_PollEvent(&event);
 
 			switch(event.type)
@@ -79,7 +88,8 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 								count++;
 								if(checkOWinBlock(a))
 								{
-									std::cout << "x won" << std::endl;
+									SDL_Delay(2000);
+									//std::cout << "x won" << std::endl;
 									SDL_Texture* tx2 = loadTexture("owon0.PNG", renderer);
 									renderTexture(tx2, renderer);
 									return 1;
@@ -88,7 +98,18 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 						}
 						else goto humanPlay;
 					}
+					if( 1085 <= x && x <= 1165 && 25 <= y && y <= 70 )
+					{
+						return 3;
+					}
 				}
+			case SDL_MOUSEMOTION:
+				SDL_GetMouseState(&x, &y);
+				if( 1085 <= x && x <= 1165 && 25 <= y && y <= 70 )
+					{
+						std::cout << "back" << std::endl;
+					}
+				break;
 			}
 		goto botPLay;
 		break;
@@ -99,8 +120,8 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 Move findBestMove(int a[][MAX])
 {
 	Move bestMove;
-	bestMove.x = 7;
-	bestMove.y = 7;
+	bestMove.x = 0;
+	bestMove.y = 0;
 	long moveMaxVal = 0;
 
 	for (int i = 0; i < MAX; ++i)
@@ -133,6 +154,7 @@ Move findBestMove(int a[][MAX])
 
 				if (moveMaxVal < tempVal)
 				{
+					std::cout << tempVal << std::endl;
 					moveMaxVal = tempVal;
 					bestMove.y = i;
 					bestMove.x = j;

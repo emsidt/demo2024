@@ -58,13 +58,16 @@ int main(int argc, char* args[])
 
 	oneplayer:
 		checkwin = onePlayer(a, x, y,count, event, quit, texture, renderer);
-		std::cout << "check win = " << checkwin << std::endl;
+		//std::cout << "check win = " << checkwin << std::endl;
+		if (checkwin == 3) goto menu;
 		goto result;
 
 	twoplayer:
 
 		checkwin = twoPlayer(a, x, y,count, event, quit, texture, renderer);
-		std::cout << "check win = " << checkwin << std::endl;
+		if (checkwin == 3) goto menu;
+
+		//std::cout << "check win = " << checkwin << std::endl;
 		goto result;
 
 	result:

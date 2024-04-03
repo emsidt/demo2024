@@ -29,6 +29,8 @@ int clickInMenu(int &x, int &y);
 
 int clickInResult(int &x, int &y);
 
+int clickInPlay(int &x, int &y);
+
 void renderMenu(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y);
 
 void renderXWon(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y);
