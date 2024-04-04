@@ -1,5 +1,12 @@
-Đã có thể vào chế độ 2 người chơi và kiểm tra thắng thua (chế độ chặn 2 đầu)
+Chế độ hai người chơi:
 
-Chế độ chơi với máy có thể chơi nhưng máy random nước đi (chế độ chặn 2 đầu)
+  - Hai người lần lượt click chuột vào vị trí ô cần đánh
+  - Chế độ mặc định là chặn hai đầu
 
-[Update 02/04/2024]
+Chế độ chơi với máy:
+
+  - Máy sử dụng thuận toán leo đồi để tìm nước đi tốt nhất (Chưa tối ưu)
+  - Chế độ mặc định là chặn hai đầu
+
+
+[Update 03/04/2024]
