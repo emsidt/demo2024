@@ -2,8 +2,8 @@
 #define _GAMEFUNC__H
 
 const int MAX = 16;
-const long defensePoint[7] = { 0, 1, 9, 81, 729, 6561, 59049 };
-const long attackPoint[7] = { 0, 3, 24, 192, 1536, 12288, 98304 };
+const long defensePoint[7] = { 0, 1, 10, 100, 1000, 5000, 50000 };
+const long attackPoint[7] = { 0, 3, 30, 250, 2000, 12000, 100000 };
 
 struct Move
 {
