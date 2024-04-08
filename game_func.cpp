@@ -69,6 +69,75 @@ bool verticalBlockX(int a[][MAX])
     return ok;
 }
 
+bool mainDiagonaBlockX(int a[][MAX])
+{
+    bool ok = false;
+    for (int i = 0; i < MAX; ++i)
+    {
+        for (int j = 0; j < MAX; ++j)
+        {
+            if (a[i][j] == 0)
+            {
+                int x1 = 0;
+                int x2 = 0;
+                for (int k = i + 1; k < MAX; k++)
+                {
+                    if (a[k][k] == 2)
+                    {
+                        x1 = k;
+                        break;
+                    }
+                }
+                for (int k = i - 1; k >= 0; k--)
+                {
+                    if (a[k][k] == 2)
+                    {
+                        x2 = k;
+                        break;
+                    }
+                }
+                if (abs(x1 - x2) <= 6 && abs(x1 - x2) > 0) ok = true;
+            }
+
+        }
+    }
+    return ok;
+}
+
+
+bool semiDiagonaBlockX(int a[][MAX])
+{
+    bool ok = false;
+    for (int i = 0; i < MAX; ++i)
+    {
+        for (int j = 0; j < MAX; ++j)
+        {
+            if (a[i][j] == 0)
+            {
+                int x1 = 0;
+                int x2 = 0;
+                for (int k = 1; k <= 5; k++)
+                {
+                    if (a[i - k][j + k] == 2)
+                    {
+                        x1 = k;
+                        break;
+                    }
+                }
+                for (int k = 1; k <= 5; k++)
+                {
+                    if (a[i + k][j - k] == 2)
+                    {
+                        x2 = k;
+                        break;
+                    }
+                }
+                if (abs(x1 - x2) <= 6 && abs(x1 - x2) > 0) ok = true;
+            }
+        }
+    }
+    return ok;
+}
 
 long verticalAttackPoint(int x, int y,int a[][MAX])
 {
@@ -208,9 +277,15 @@ long mainDiagonalAttackPoint(int x, int y,int a[][MAX])
 			break;
 		}
 	}
-
-	totalVal -= defensePoint[enemies + 1];
-	totalVal += attackPoint[allies];
+    if (mainDiagonaBlockX(a))
+    {
+        totalVal -= defensePoint[enemies + 1];
+    }
+    else
+    {
+        totalVal -= defensePoint[enemies + 1];
+        totalVal += attackPoint[allies + 1];
+    }
 
 	return totalVal;
 }
@@ -258,9 +333,15 @@ long semiDiagonalAttackPoint(int x, int y,int a[][MAX])
 			break;
 		}
 	}
-
-	totalVal -= defensePoint[enemies + 1];
-	totalVal += attackPoint[allies];
+	if (semiDiagonaBlockX(a))
+    {
+        totalVal -= defensePoint[enemies + 1];
+    }
+    else
+    {
+        totalVal -= defensePoint[enemies + 1];
+        totalVal += attackPoint[allies + 1];
+    }
 
 	return totalVal;
 }
@@ -373,7 +454,6 @@ long mainDiagonalDefensePoint(int x, int y,int a[][MAX])
 		}
 		else if (a[x - i][y - i] == 2)
 		{
-
 			enemies++;
 		}
 		else
