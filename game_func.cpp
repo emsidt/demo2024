@@ -315,7 +315,7 @@ long mainDiagonalDefensePoint(int x, int y,int a[][MAX])
 		}
 	}
 
-	totalVal += defensePoint[enemies + 1];
+	totalVal += defensePoint[enemies];
 	return totalVal;
 }
 long semiDiagonalDefensePoint(int x, int y,int a[][MAX])
@@ -362,7 +362,7 @@ long semiDiagonalDefensePoint(int x, int y,int a[][MAX])
 		}
 	}
 
-	totalVal += defensePoint[enemies + 1];
+	totalVal += defensePoint[enemies];
 
 	return totalVal;
 }
@@ -396,12 +396,6 @@ void displayBoard(int a[][MAX]){
     }
 }
 
-void inputPlayer(int a[][MAX], int &x, int &y, int count){
-    if(count%2 == 0){
-        a[x][y] == 1;
-    }
-    else a[x][y] = 2;
-}
 
 bool validMove(int x, int y, int a[][MAX]){
     if(a[y][x] == 0 && x <= 15 && y <= 15) return true;
