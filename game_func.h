@@ -42,5 +42,5 @@ long mainDiagonalDefensePoint(int x, int y,int a[][MAX]);
 long semiDiagonalDefensePoint(int x, int y,int a[][MAX]);
 
 bool twoBlockX(int a[][MAX]);
-
+bool verticalBlockX(int a[][MAX]);
 #endif // _GAMEFUNC__H

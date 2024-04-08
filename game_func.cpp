@@ -14,7 +14,7 @@ bool horizonBlockX(int a[][MAX])
                 int x2 = 0;
                 for (int k = j - 1; k >= 0; k--)
                 {
-                    if (a[i][k] == 0)
+                    if (a[i][k] == 2)
                     {
                         x1 = k;
                         break;
@@ -22,7 +22,7 @@ bool horizonBlockX(int a[][MAX])
                 }
                 for (int k = j + 1; k < MAX; k++)
                 {
-                    if (a[i][k] == 0)
+                    if (a[i][k] == 2)
                     {
                         x2 = k;
                         break;
@@ -35,6 +35,39 @@ bool horizonBlockX(int a[][MAX])
     return ok;
 }
 
+bool verticalBlockX(int a[][MAX])
+{
+    bool ok = false;
+    for (int i = 0; i < MAX; ++i)
+    {
+        for (int j = 0; j < MAX; ++j)
+        {
+            if (a[i][j] == 0)
+            {
+                int x1 = 0;
+                int x2 = 0;
+                for (int k = i - 1; k >= 0; k--)
+                {
+                    if (a[k][j] == 2)
+                    {
+                        x1 = k;
+                        break;
+                    }
+                }
+                for (int k = i + 1; k < MAX; k++)
+                {
+                    if (a[k][j] == 2)
+                    {
+                        x2 = k;
+                        break;
+                    }
+                }
+                if (abs(x1 - x2) <= 6 && abs(x1 - x2) > 0) ok = true;
+            }
+        }
+    }
+    return ok;
+}
 
 
 long verticalAttackPoint(int x, int y,int a[][MAX])
@@ -69,9 +102,17 @@ long verticalAttackPoint(int x, int y,int a[][MAX])
 		}
 		else break;
 	}
+	if (verticalBlockX(a))
+    {
+        totalVal -= defensePoint[enemies];
+    }
+    else
+    {
+        totalVal -= defensePoint[enemies];
+        totalVal += attackPoint[allies];
+    }
 
-	totalVal -= defensePoint[enemies];
-	totalVal += attackPoint[allies];
+
 
 	return totalVal;
 
