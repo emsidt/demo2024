@@ -1,18 +1,38 @@
 #include "Function.h"
 #include <ctime>
 
-int botPlayX()
+bool horizonBlockX(int a[][MAX])
 {
-
-	int n = rand() % (620 - 75) + 75 + 1;
-
-	return n;
-}
-int botPLayY()
-{
-
-	int n = rand() % (590 - 50) + 50 + 1;
-	return n;
+    bool ok = false;
+    for (int i = 0; i < MAX; ++i)
+    {
+        for (int j = 0; j < MAX; ++j)
+        {
+            if (a[i][j] == 0)
+            {
+                int x1 = 0;
+                int x2 = 0;
+                for (int k = j - 1; k >= 0; k--)
+                {
+                    if (a[i][k] == 0)
+                    {
+                        x1 = k;
+                        break;
+                    }
+                }
+                for (int k = j + 1; k < MAX; k++)
+                {
+                    if (a[i][k] == 0)
+                    {
+                        x2 = k;
+                        break;
+                    }
+                }
+                if (abs(x1 - x2) <= 6 && abs(x1 - x2) > 0) ok = true;
+            }
+        }
+    }
+    return ok;
 }
 
 
@@ -90,9 +110,16 @@ long horizonAttackPoint(int x, int y,int a[][MAX])
 		}
 		else break;
 	}
+    if (horizonBlockX(a))
+    {
+        totalVal = totalVal -= defensePoint[enemies];
+    }
+    else
+    {
+        totalVal -= defensePoint[enemies];
+        totalVal += attackPoint[allies];
+    }
 
-	totalVal -= defensePoint[enemies];
-	totalVal += attackPoint[allies];
 
 	return totalVal;
 }
@@ -366,6 +393,7 @@ long semiDiagonalDefensePoint(int x, int y,int a[][MAX])
 
 	return totalVal;
 }
+
 
 
 

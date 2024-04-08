@@ -37,7 +37,7 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 						a[y][x] = 1;
 						displayBoard(a);
 						std::cout << std::endl;
-						SDL_Delay(200);
+						SDL_Delay(400);
 						SDL_Texture* tx1 = loadTexture("xcell.png", renderer);
 						renderTexture(tx1, renderer, x*34+4+63+x/6, y*34+4+50, 25, 25);
 						SDL_RenderPresent(renderer);
