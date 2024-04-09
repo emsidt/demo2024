@@ -178,7 +178,7 @@ long verticalAttackPoint(int x, int y,int a[][MAX])
     else
     {
         totalVal -= defensePoint[enemies];
-        totalVal += attackPoint[allies];
+        totalVal += attackPoint[allies + 1];
     }
 
 
@@ -227,7 +227,7 @@ long horizonAttackPoint(int x, int y,int a[][MAX])
     else
     {
         totalVal -= defensePoint[enemies];
-        totalVal += attackPoint[allies];
+        totalVal += attackPoint[allies + 1];
     }
 
 
@@ -283,7 +283,7 @@ long mainDiagonalAttackPoint(int x, int y,int a[][MAX])
     }
     else
     {
-        totalVal -= defensePoint[enemies + 1];
+        totalVal -= defensePoint[enemies];
         totalVal += attackPoint[allies + 1];
     }
 
@@ -339,7 +339,7 @@ long semiDiagonalAttackPoint(int x, int y,int a[][MAX])
     }
     else
     {
-        totalVal -= defensePoint[enemies + 1];
+        totalVal -= defensePoint[enemies];
         totalVal += attackPoint[allies + 1];
     }
 

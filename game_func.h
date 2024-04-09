@@ -3,7 +3,7 @@
 
 const int MAX = 16;
 const long defensePoint[7] = { 0, 1, 10, 100, 1000, 5000, 50000 };
-const long attackPoint[7] = { 0, 3, 30, 250, 2000, 12000, 100000 };
+const long attackPoint[7] = { 0, 5, 30, 500, 2000, 12000, 100000 };
 
 struct Move
 {
