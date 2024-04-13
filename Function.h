@@ -6,14 +6,14 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include "twopplayer.h"
-
+#include <SDL_mixer.h>
 const int SCREEN_WIDTH = 1200;
 const int SCREEN_HEIGHT = 640;
 
 
-void initSDL(SDL_Window* &window, SDL_Renderer* &renderer); // khoi tao cua so va but ve
+void initSDL(SDL_Window* &window, SDL_Renderer* &renderer, Mix_Music *&music); // khoi tao cua so va but ve
 
-void quitSDL(SDL_Window* window, SDL_Renderer* renderer); // giai phong
+void quitSDL(SDL_Window* window, SDL_Renderer* renderer, Mix_Music *&music); // giai phong
 
 void waitUntilKeyPressed(); // cho su kien ban phim
 

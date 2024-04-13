@@ -4,10 +4,12 @@
 
 int main(int argc, char* args[])
 {
-	SDL_Window* window;
-	SDL_Renderer* renderer;
+	SDL_Window* window = nullptr;
+	SDL_Renderer* renderer = nullptr;
 	SDL_Event event;
-	SDL_Texture* texture;
+	SDL_Texture* texture = nullptr;
+	Mix_Music *music = nullptr;
+	Mix_Chunk *audio = nullptr;
 	int x, y;
 	int a[MAX][MAX];
 	int count = 0;
@@ -17,7 +19,7 @@ int main(int argc, char* args[])
 	int checkwin = 0; // kiem tra thang, thua, hoa
 	bool quit = false;
 
-	initSDL(window, renderer); // khoi tao man hinh window
+	initSDL(window, renderer, music); // khoi tao man hinh window
 	texture = loadTexture("mainmenu.PNG", renderer);
 	renderTexture(texture, renderer);
 
@@ -110,6 +112,6 @@ int main(int argc, char* args[])
 			}
 		}
 
-	quitSDL(window, renderer);
+	quitSDL(window, renderer, music);
 	return 0;
 }

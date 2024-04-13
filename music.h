@@ -2,4 +2,7 @@
 #define __MUSIC_H
 
 
+
+void initMusic()
+
 #endif // __MUSIC_H

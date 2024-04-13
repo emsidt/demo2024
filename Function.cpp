@@ -5,10 +5,10 @@ SDL_Texture* texture;
 //int x, y;
 
 
-void initSDL(SDL_Window* &window, SDL_Renderer* &renderer)
+void initSDL(SDL_Window* &window, SDL_Renderer* &renderer, Mix_Music *&music)
 {
-	if(SDL_Init(SDL_Init(SDL_INIT_VIDEO)) < 0 ){
-        std::cout << "SDL khong the khoi tao" << std::endl;
+	if(SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0 ){
+        printf( "SDL could not initialize! SDL Error: %s\n", SDL_GetError() );
     }
     else{
         window = SDL_CreateWindow("trinh duong",
@@ -23,6 +23,10 @@ void initSDL(SDL_Window* &window, SDL_Renderer* &renderer)
         renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 		}
 	}
+	if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0 )
+    {
+        printf( "SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError() );
+    }
 }
 
 SDL_Texture* loadTexture(std::string path, SDL_Renderer* renderer)
@@ -63,10 +67,18 @@ void standardCoordinate(int &x, int &y)
 	y = (y - 50)/34;
 }
 
-void quitSDL(SDL_Window* window, SDL_Renderer* renderer)
+void quitSDL(SDL_Window* window, SDL_Renderer* renderer, Mix_Music *&music)
 {
+    Mix_FreeMusic( music );
+    music = nullptr;
+
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
+    renderer = nullptr;
+    window = nullptr;
+
+    Mix_Quit();
+    IMG_Quit();
     SDL_Quit();
 }
 
