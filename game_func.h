@@ -1,15 +1,10 @@
 #ifndef _GAMEFUNC__H
 #define _GAMEFUNC__H
 
-const int MAX = 16;
-const long defensePoint[7] = { 0, 1, 10, 100, 1000, 5000, 50000 };
-const long attackPoint[7] = { 0, 5, 30, 500, 2000, 12000, 100000 };
 
-struct Move
-{
-	int x;
-	int y;
-};
+#include "constant.h"
+
+
 
 void initializeBoard(int a[][MAX]); // khoi tao ban choi
 void displayBoard(int a[][MAX]); // hien thi ban choi tren terminal

@@ -1,5 +1,5 @@
 #include "twopplayer.h"
-#include "Function.h"
+#include "media.h"
 
 int a[MAX][MAX];
 SDL_Event event;

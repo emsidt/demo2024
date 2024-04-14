@@ -1,14 +1,7 @@
 # depslib dependency file v1.0
-1713021253 source:c:\file codeblocks\caro\function.cpp
-	"Function.h"
+1713102777 source:c:\file codeblocks\caro\function.cpp
 
-1713019116 c:\file codeblocks\caro\function.h
-	<string>
-	<iostream>
-	<SDL.h>
-	<SDL_image.h>
-	"twopplayer.h"
-	<SDL_mixer.h>
+1713102961 c:\file codeblocks\caro\function.h
 
 1706832967 c:\mingw\sdl2\x86_64-w64-mingw32\include\sdl2\sdl.h
 	"SDL_main.h"
@@ -409,46 +402,51 @@
 	"begin_code.h"
 	"close_code.h"
 
-1713019116 source:c:\file codeblocks\caro\main.cpp
-	"Function.h"
+1713102768 source:c:\file codeblocks\caro\main.cpp
+	"media.h"
 	"twopplayer.h"
 	"oneplayer.h"
 
 1710323866 c:\file codeblocks\caro\main.h
 
-1712151726 source:c:\file codeblocks\caro\twoplayer.cpp
+1713102768 source:c:\file codeblocks\caro\twoplayer.cpp
 	"twopplayer.h"
-	"Function.h"
+	"media.h"
 
-1712063220 c:\file codeblocks\caro\twopplayer.h
+1713102998 c:\file codeblocks\caro\twopplayer.h
 	<string>
 	<iostream>
 	<SDL.h>
 	<SDL_image.h>
 	"game_func.h"
+	"constant.h"
 
-1712665888 source:c:\file codeblocks\caro\oneplayer.cpp
+1713102768 source:c:\file codeblocks\caro\oneplayer.cpp
 	"oneplayer.h"
 	"game_func.h"
-	"Function.h"
+	"media.h"
 	<ctime>
 	<cmath>
 	<algorithm>
 
-1712072877 c:\file codeblocks\caro\oneplayer.h
+1713102998 c:\file codeblocks\caro\oneplayer.h
 	<string>
 	<iostream>
 	<SDL.h>
 	<SDL_image.h>
 	"game_func.h"
+	"constant.h"
 
 1711784307 source:c:\file codeblocks\caro\music.cpp
 
-1712666179 c:\file codeblocks\caro\game_func.h
+1713102998 c:\file codeblocks\caro\game_func.h
+	"constant.h"
 
-1712665966 source:c:\file codeblocks\caro\game_func.cpp
+1713103025 source:c:\file codeblocks\caro\game_func.cpp
 	"Function.h"
 	<ctime>
+	"constant.h"
+	<iostream>
 
 1712151065 source:c:\users\lenovo\downloads\caro\function.cpp
 	"Function.h"
@@ -1354,4 +1352,17 @@
 	"SDL_version.h"
 	"begin_code.h"
 	"close_code.h"
+
+1713102730 source:c:\file codeblocks\caro\media.cpp
+	"media.h"
+
+1713102998 c:\file codeblocks\caro\media.h
+	<string>
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	"constant.h"
+
+1713102961 c:\file codeblocks\caro\constant.h
 

@@ -1,6 +1,6 @@
 #include "oneplayer.h"
 #include "game_func.h"
-#include "Function.h"
+#include "media.h"
 #include <ctime>
 #include <cmath>
 #include <algorithm>

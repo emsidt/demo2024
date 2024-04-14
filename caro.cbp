@@ -51,9 +51,12 @@
 		</Linker>
 		<Unit filename="Function.cpp" />
 		<Unit filename="Function.h" />
+		<Unit filename="constant.h" />
 		<Unit filename="game_func.cpp" />
 		<Unit filename="game_func.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="media.cpp" />
+		<Unit filename="media.h" />
 		<Unit filename="music.cpp" />
 		<Unit filename="music.h" />
 		<Unit filename="oneplayer.cpp" />

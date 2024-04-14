@@ -5,6 +5,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include "game_func.h"
+#include "constant.h"
 
 
 int onePlayer(int a[][MAX], int &x, int &y, int &count, SDL_Event &event, bool quit, SDL_Texture* texture,

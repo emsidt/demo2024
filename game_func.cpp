@@ -1,6 +1,7 @@
 #include "Function.h"
 #include <ctime>
-
+#include "constant.h"
+#include <iostream>
 bool horizonBlockX(int a[][MAX])
 {
     bool ok = false;
