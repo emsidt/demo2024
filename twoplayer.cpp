@@ -5,7 +5,7 @@
 //SDL_Event event;
 
 int twoPlayer(int a[][MAX], int &x, int &y, int &count, SDL_Event &event, bool quit, SDL_Texture* texture,
-SDL_Renderer* renderer)
+SDL_Renderer* renderer, Mix_Chunk *&audio)
 {
 	count = 0;
 	initializeBoard(a);
@@ -43,6 +43,7 @@ SDL_Renderer* renderer)
 								SDL_Texture* tx1 = loadTexture("image/xcell.png", renderer);
 								renderTexture(tx1, renderer, x*34+4+63+x/6, y*34+4+50, 25, 25);
 								SDL_RenderPresent(renderer);
+								playMusic("sound_effects/xplay.wav", audio);
 								count++;
 								if(checkXWinBlock(a))
 								{
@@ -61,6 +62,7 @@ SDL_Renderer* renderer)
 								SDL_Texture* tx1 = loadTexture("image/ocell.png", renderer);
 								renderTexture(tx1, renderer, x*34+4+63+x/6, y*34+4+50, 25, 25);
 								SDL_RenderPresent(renderer);
+								playMusic("sound_effects/oplay.wav", audio);
 								count++;
 								if(checkOWinBlock(a))
 								{
@@ -68,6 +70,7 @@ SDL_Renderer* renderer)
 									std::cout << "o won" << std::endl;
 									SDL_Texture* tx2 = loadTexture("image/owon0.PNG", renderer);
 									renderTexture(tx2, renderer);
+									playMusic("sound_effects/owin.wav", audio);
 									return 2;
 								}
 

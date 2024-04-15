@@ -40,6 +40,7 @@ int main(int argc, char* args[])
 			if(SDL_BUTTON_LEFT == event.button.button)
 			{
 				gameMode = clickInMenu(x, y);
+				playMusic("sound_effects/mouseclick.wav", audio);
 				switch(gameMode)
 				{
 				case 1:
@@ -67,7 +68,7 @@ int main(int argc, char* args[])
 
 	twoplayer:
 
-		checkwin = twoPlayer(a, x, y,count, event, quit, texture, renderer);
+		checkwin = twoPlayer(a, x, y,count, event, quit, texture, renderer, audio);
 		if (checkwin == 3) goto menu;
 
 		//std::cout << "check win = " << checkwin << std::endl;
@@ -89,6 +90,8 @@ int main(int argc, char* args[])
 				if(SDL_BUTTON_LEFT == event.button.button)
 				{
 					choose = clickInResult(x, y);
+                    playMusic("sound_effects/mouseclick.wav", audio);
+
 					switch(gameMode)
 					{
 					case 1:
