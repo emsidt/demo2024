@@ -148,23 +148,23 @@ void renderMenu(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y)
 	switch(tmp)
 	{
 	case 1:
-		texture = loadTexture("mainmenu1player.PNG", renderer);
+		texture = loadTexture("image/mainmenu1player.PNG", renderer);
 		renderTexture(texture, renderer);
 		break;
 	case 2:
-		texture = loadTexture("mainmenu2player.PNG", renderer);
+		texture = loadTexture("image/mainmenu2player.PNG", renderer);
 		renderTexture(texture, renderer);
 		break;
 	case 3:
-		texture = loadTexture("mainmenuexit.PNG", renderer);
+		texture = loadTexture("image/mainmenuexit.PNG", renderer);
 		renderTexture(texture, renderer);
 		break;
 	case 4:
-		texture = loadTexture("mainmenugamecaro.PNG", renderer);
+		texture = loadTexture("image/mainmenugamecaro.PNG", renderer);
 		renderTexture(texture, renderer);
 		break;
 	default:
-		texture = loadTexture("mainmenu.PNG", renderer);
+		texture = loadTexture("image/mainmenu.PNG", renderer);
 		renderTexture(texture, renderer);
 		break;
 	}
@@ -178,15 +178,15 @@ void renderXWon(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y)
 	switch(tmp)
 	{
 	case 1:
-		texture = loadTexture("xwonplayagain.PNG", renderer);
+		texture = loadTexture("image/xwonplayagain.PNG", renderer);
 		renderTexture(texture, renderer);
 		break;
 	case 2:
-		texture = loadTexture("xwonmainmenu.PNG", renderer);
+		texture = loadTexture("image/xwonmainmenu.PNG", renderer);
 		renderTexture(texture, renderer);
 		break;
 	default:
-		texture = loadTexture("xwon0.PNG", renderer);
+		texture = loadTexture("image/xwon0.PNG", renderer);
 		renderTexture(texture, renderer);
 		break;
 	}
@@ -206,16 +206,16 @@ void renderResult(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y)
 	{
 	case 1:
 		//std::cout << "tmp: " << tmp << std::endl;
-		texture = loadTexture("resultplayagain.PNG", renderer);
+		texture = loadTexture("image/resultplayagain.PNG", renderer);
 		renderTexture(texture, renderer, 0, 340, 1200, 300);
 		break;
 	case 2:
 		//std::cout << "tmp: " << tmp << std::endl;
-		texture = loadTexture("resultmenu.PNG", renderer);
+		texture = loadTexture("image/resultmenu.PNG", renderer);
 		renderTexture(texture, renderer, 0, 340, 1200, 300);
 		break;
 	default:
-		texture = loadTexture("result0.PNG", renderer);
+		texture = loadTexture("image/result0.PNG", renderer);
 		renderTexture(texture, renderer, 0, 340, 1200, 300);
 		break;
 	}

@@ -21,7 +21,7 @@ int main(int argc, char* args[])
 	bool quit = false;
 
 	initSDL(window, renderer, music, audio); // khoi tao man hinh window
-	texture = loadTexture("mainmenu.PNG", renderer);
+	texture = loadTexture("image/mainmenu.PNG", renderer);
 	renderTexture(texture, renderer);
 
 	menu:
