@@ -6,7 +6,7 @@ SDL_Texture* texture;
 //int x, y;
 
 
-void initSDL(SDL_Window* &window, SDL_Renderer* &renderer, Mix_Music *&music)
+void initSDL(SDL_Window* &window, SDL_Renderer* &renderer, Mix_Music *&music,Mix_Chunk *&audio)
 {
 	if(SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0 ){
         printf( "SDL could not initialize! SDL Error: %s\n", SDL_GetError() );
@@ -27,6 +27,15 @@ void initSDL(SDL_Window* &window, SDL_Renderer* &renderer, Mix_Music *&music)
 	if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0 )
     {
         printf( "SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError() );
+    }
+    else
+    {
+        music = Mix_LoadMUS("sound_effects/theme.wav");
+        if( music == NULL )
+        {
+        printf( "Failed to load beat music! SDL_mixer Error: %s\n", Mix_GetError() );
+        }
+        //Mix_PlayMusic(music, -1);
     }
 }
 
@@ -68,9 +77,11 @@ void standardCoordinate(int &x, int &y)
 	y = (y - 50)/34;
 }
 
-void quitSDL(SDL_Window* window, SDL_Renderer* renderer, Mix_Music *&music)
+void quitSDL(SDL_Window* window, SDL_Renderer* renderer, Mix_Music *&music, Mix_Chunk *&audio)
 {
     Mix_FreeMusic( music );
+    Mix_FreeChunk( audio );
+    audio = nullptr;
     music = nullptr;
 
     SDL_DestroyRenderer(renderer);
@@ -208,4 +219,14 @@ void renderResult(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y)
 		renderTexture(texture, renderer, 0, 340, 1200, 300);
 		break;
 	}
+}
+
+void playMusic(std::string path ,Mix_Chunk *audio)
+{
+    audio = Mix_LoadWAV(path.c_str());
+    if(audio == nullptr)
+    {
+        printf( "Failed to load sound effect! SDL_mixer Error: %s\n", Mix_GetError() );
+    }
+    Mix_PlayChannel(-1, audio, 0);
 }

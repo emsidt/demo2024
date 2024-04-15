@@ -1,10 +1,11 @@
 #include "media.h"
 #include "twopplayer.h"
 #include "oneplayer.h"
-
+#include "constant.h"
 int main(int argc, char* args[])
 {
-	SDL_Window* window = nullptr;
+
+    SDL_Window* window = nullptr;
 	SDL_Renderer* renderer = nullptr;
 	SDL_Event event;
 	SDL_Texture* texture = nullptr;
@@ -19,7 +20,7 @@ int main(int argc, char* args[])
 	int checkwin = 0; // kiem tra thang, thua, hoa
 	bool quit = false;
 
-	initSDL(window, renderer, music); // khoi tao man hinh window
+	initSDL(window, renderer, music, audio); // khoi tao man hinh window
 	texture = loadTexture("mainmenu.PNG", renderer);
 	renderTexture(texture, renderer);
 
@@ -59,7 +60,7 @@ int main(int argc, char* args[])
 	}
 
 	oneplayer:
-		checkwin = onePlayer(a, x, y,count, event, quit, texture, renderer);
+		checkwin = onePlayer(a, x, y,count, event, quit, texture, renderer, audio);
 		//std::cout << "check win = " << checkwin << std::endl;
 		if (checkwin == 3) goto menu;
 		goto result;
@@ -112,6 +113,6 @@ int main(int argc, char* args[])
 			}
 		}
 
-	quitSDL(window, renderer, music);
+	quitSDL(window, renderer, music, audio);
 	return 0;
 }

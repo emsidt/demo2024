@@ -8,7 +8,7 @@
 int onePlayer(int a[][MAX], int &x, int &y, int &count,
 			SDL_Event &event, bool quit,
 			SDL_Texture* texture,
-			SDL_Renderer* renderer)
+			SDL_Renderer* renderer, Mix_Chunk *&audio)
 {
 	count = 0;
 	initializeBoard(a);
@@ -40,7 +40,10 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 						std::cout << std::endl;
 						SDL_Texture* tx1 = loadTexture("xcell.png", renderer);
 						renderTexture(tx1, renderer, x*34+4+63+x/6, y*34+4+50, 25, 25);
+						playMusic("sound_effects/oplay.wav", audio);
 						SDL_RenderPresent(renderer);
+						//audio = nullptr;
+
 
 						count++;
 						if(checkXWinBlock(a))
@@ -49,6 +52,7 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 							//std::cout << "o won" << std::endl;
 							SDL_Texture* tx2 = loadTexture("xwon0.PNG", renderer);
 							renderTexture(tx2, renderer);
+
 							return 2;
 						}
 					}
@@ -83,14 +87,17 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 								displayBoard(a);
 								std::cout << std::endl;
 								SDL_Texture* tx1 = loadTexture("ocell.png", renderer);
+
 								renderTexture(tx1, renderer, x*34+4+63+x/6, y*34+4+50, 25, 25);
 								SDL_RenderPresent(renderer);
+								playMusic("sound_effects/xplay.wav", audio);
 								count++;
 								if(checkOWinBlock(a))
 								{
 									SDL_Delay(2000);
 									//std::cout << "x won" << std::endl;
 									SDL_Texture* tx2 = loadTexture("owon0.PNG", renderer);
+                                    playMusic("sound_effects/owin.wav", audio);
 									renderTexture(tx2, renderer);
 									return 1;
 								}

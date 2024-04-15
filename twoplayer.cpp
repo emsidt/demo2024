@@ -1,8 +1,8 @@
 #include "twopplayer.h"
 #include "media.h"
 
-int a[MAX][MAX];
-SDL_Event event;
+//int a[MAX][MAX];
+//SDL_Event event;
 
 int twoPlayer(int a[][MAX], int &x, int &y, int &count, SDL_Event &event, bool quit, SDL_Texture* texture,
 SDL_Renderer* renderer)

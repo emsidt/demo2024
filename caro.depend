@@ -402,14 +402,15 @@
 	"begin_code.h"
 	"close_code.h"
 
-1713102768 source:c:\file codeblocks\caro\main.cpp
+1713190774 source:c:\file codeblocks\caro\main.cpp
 	"media.h"
 	"twopplayer.h"
 	"oneplayer.h"
+	"constant.h"
 
 1710323866 c:\file codeblocks\caro\main.h
 
-1713102768 source:c:\file codeblocks\caro\twoplayer.cpp
+1713103677 source:c:\file codeblocks\caro\twoplayer.cpp
 	"twopplayer.h"
 	"media.h"
 
@@ -421,7 +422,7 @@
 	"game_func.h"
 	"constant.h"
 
-1713102768 source:c:\file codeblocks\caro\oneplayer.cpp
+1713191179 source:c:\file codeblocks\caro\oneplayer.cpp
 	"oneplayer.h"
 	"game_func.h"
 	"media.h"
@@ -429,7 +430,7 @@
 	<cmath>
 	<algorithm>
 
-1713102998 c:\file codeblocks\caro\oneplayer.h
+1713190622 c:\file codeblocks\caro\oneplayer.h
 	<string>
 	<iostream>
 	<SDL.h>
@@ -442,8 +443,8 @@
 1713102998 c:\file codeblocks\caro\game_func.h
 	"constant.h"
 
-1713103025 source:c:\file codeblocks\caro\game_func.cpp
-	"Function.h"
+1713103627 source:c:\file codeblocks\caro\game_func.cpp
+	"media.h"
 	<ctime>
 	"constant.h"
 	<iostream>
@@ -1353,10 +1354,10 @@
 	"begin_code.h"
 	"close_code.h"
 
-1713102730 source:c:\file codeblocks\caro\media.cpp
+1713190774 source:c:\file codeblocks\caro\media.cpp
 	"media.h"
 
-1713102998 c:\file codeblocks\caro\media.h
+1713190795 c:\file codeblocks\caro\media.h
 	<string>
 	<iostream>
 	<SDL.h>
@@ -1364,5 +1365,6 @@
 	<SDL_mixer.h>
 	"constant.h"
 
-1713102961 c:\file codeblocks\caro\constant.h
+1713103804 c:\file codeblocks\caro\constant.h
+	<SDL_mixer.h>
 

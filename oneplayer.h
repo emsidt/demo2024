@@ -9,7 +9,7 @@
 
 
 int onePlayer(int a[][MAX], int &x, int &y, int &count, SDL_Event &event, bool quit, SDL_Texture* texture,
-SDL_Renderer* renderer);
+SDL_Renderer* renderer, Mix_Chunk *&audio);
 
 Move findBestMove(int a[][MAX]);
 

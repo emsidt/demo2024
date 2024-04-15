@@ -11,9 +11,9 @@
 
 
 
-void initSDL(SDL_Window* &window, SDL_Renderer* &renderer, Mix_Music *&music); // khoi tao cua so va but ve
+void initSDL(SDL_Window* &window, SDL_Renderer* &renderer, Mix_Music *&music, Mix_Chunk *&audio); // khoi tao cua so va but ve
 
-void quitSDL(SDL_Window* window, SDL_Renderer* renderer, Mix_Music *&music); // giai phong
+void quitSDL(SDL_Window* window, SDL_Renderer* renderer, Mix_Music *&music, Mix_Chunk *&audio); // giai phong
 
 void waitUntilKeyPressed(); // cho su kien ban phim
 
@@ -40,4 +40,7 @@ void renderOWon(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y);
 void renderDraw(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y);
 
 void renderResult(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y);
+
+// am thanh
+void playMusic(std::string path ,Mix_Chunk *audio);
 #endif // __MEDIA_H
