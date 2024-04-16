@@ -7,8 +7,8 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_mixer.h>
+#include <SDL_ttf.h>
 #include "constant.h"
-
 
 
 void initSDL(SDL_Window* &window, SDL_Renderer* &renderer, Mix_Music *&music, Mix_Chunk *&audio); // khoi tao cua so va but ve

@@ -161,7 +161,7 @@ Move findBestMove(int a[][MAX])
 
 				if (moveMaxVal < tempVal)
 				{
-					std::cout << tempVal << std::endl;
+					//std::cout << tempVal << std::endl;
 					moveMaxVal = tempVal;
 					bestMove.y = i;
 					bestMove.x = j;
@@ -172,7 +172,7 @@ Move findBestMove(int a[][MAX])
 	}
 	//std::cout << "movemaxval: "<< moveMaxVal << std::endl;
 	return bestMove;
-	std::cout << bestMove.x << " " << bestMove.y << std::endl;
+	//std::cout << bestMove.x << " " << bestMove.y << std::endl;
 }
 
 

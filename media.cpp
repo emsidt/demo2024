@@ -12,7 +12,7 @@ void initSDL(SDL_Window* &window, SDL_Renderer* &renderer, Mix_Music *&music,Mix
         printf( "SDL could not initialize! SDL Error: %s\n", SDL_GetError() );
     }
     else{
-        window = SDL_CreateWindow("trinh duong",
+        window = SDL_CreateWindow("Caro 1.0",
                                     SDL_WINDOWPOS_UNDEFINED,
                                     SDL_WINDOWPOS_UNDEFINED,
                                     SCREEN_WIDTH, SCREEN_HEIGHT,
