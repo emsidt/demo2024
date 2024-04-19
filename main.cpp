@@ -2,13 +2,14 @@
 #include "twopplayer.h"
 #include "oneplayer.h"
 #include "constant.h"
+
+
 int main(int argc, char* args[])
 {
 
     Media media;
+    Board board;
 	int x, y;
-	int a[MAX][MAX];
-	int count = 0;
     SDL_Event event;
 	int gameMode = 0; // bien lua chon che do
 	int choose = 0;
@@ -16,8 +17,6 @@ int main(int argc, char* args[])
 	bool quit = false;
 
 	media.initSDL(); // khoi tao man hinh window
-	media.texture = media.loadTexture("image/mainmenu.PNG", media.renderer);
-	media.renderTexture(media.texture, media.renderer);
 
 	menu:
 
@@ -56,14 +55,14 @@ int main(int argc, char* args[])
 	}
 
 	oneplayer:
-		checkwin = onePlayer(a, x, y,count, event, quit, media.texture, media.renderer, media.audio);
+		checkwin = onePlayer(board.a, x, y, board.count, event, quit, media.texture, media.renderer, media.audio);
 		//std::cout << "check win = " << checkwin << std::endl;
 		if (checkwin == 3) goto menu;
 		goto result;
 
 	twoplayer:
 
-		checkwin = twoPlayer(a, x, y,count, event, quit, media.texture, media.renderer, media.audio);
+		checkwin = twoPlayer(board.a, x, y, board.count, event, quit, media.texture, media.renderer, media.audio);
 		if (checkwin == 3) goto menu;
 
 		//std::cout << "check win = " << checkwin << std::endl;

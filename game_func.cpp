@@ -2,7 +2,12 @@
 #include <ctime>
 #include "constant.h"
 #include <iostream>
-bool horizonBlockX(int a[][MAX])
+
+#include "game_func.h"
+
+
+
+bool Board::horizonBlockX(int a[][MAX])
 {
     bool ok = false;
     for (int i = 0; i < MAX; ++i)
@@ -36,7 +41,7 @@ bool horizonBlockX(int a[][MAX])
     return ok;
 }
 
-bool verticalBlockX(int a[][MAX])
+bool Board::verticalBlockX(int a[][MAX])
 {
     bool ok = false;
     for (int i = 0; i < MAX; ++i)
@@ -70,7 +75,7 @@ bool verticalBlockX(int a[][MAX])
     return ok;
 }
 
-bool mainDiagonaBlockX(int a[][MAX])
+bool Board::mainDiagonaBlockX(int a[][MAX])
 {
     bool ok = false;
     for (int i = 0; i < MAX; ++i)
@@ -106,7 +111,7 @@ bool mainDiagonaBlockX(int a[][MAX])
 }
 
 
-bool semiDiagonaBlockX(int a[][MAX])
+bool Board::semiDiagonaBlockX(int a[][MAX])
 {
     bool ok = false;
     for (int i = 0; i < MAX; ++i)
@@ -140,7 +145,7 @@ bool semiDiagonaBlockX(int a[][MAX])
     return ok;
 }
 
-long verticalAttackPoint(int x, int y,int a[][MAX])
+long Board::verticalAttackPoint(int x, int y,int a[][MAX])
 {
 	long totalVal = 0;
 	int allies = 0;
@@ -188,7 +193,7 @@ long verticalAttackPoint(int x, int y,int a[][MAX])
 
 }
 
-long horizonAttackPoint(int x, int y,int a[][MAX])
+long Board::horizonAttackPoint(int x, int y,int a[][MAX])
 {
 	long totalVal = 0;
 	int allies = 0;
@@ -234,7 +239,7 @@ long horizonAttackPoint(int x, int y,int a[][MAX])
 
 	return totalVal;
 }
-long mainDiagonalAttackPoint(int x, int y,int a[][MAX])
+long Board::mainDiagonalAttackPoint(int x, int y,int a[][MAX])
 {
 	long totalVal = 0;
 	int allies = 0;
@@ -291,7 +296,7 @@ long mainDiagonalAttackPoint(int x, int y,int a[][MAX])
 	return totalVal;
 }
 
-long semiDiagonalAttackPoint(int x, int y,int a[][MAX])
+long Board::semiDiagonalAttackPoint(int x, int y,int a[][MAX])
 {
 	long totalVal = 0;
 	int allies = 0;
@@ -347,7 +352,7 @@ long semiDiagonalAttackPoint(int x, int y,int a[][MAX])
 	return totalVal;
 }
 
-long verticalDefensePoint(int x, int y,int a[][MAX])
+long Board::verticalDefensePoint(int x, int y,int a[][MAX])
 {
 	long totalVal = 0;
 	int allies = 0;
@@ -384,7 +389,7 @@ long verticalDefensePoint(int x, int y,int a[][MAX])
 
 	return totalVal;
 }
-long horizonDefensePoint(int x, int y,int a[][MAX])
+long Board::horizonDefensePoint(int x, int y,int a[][MAX])
 {
 	long totalVal = 0;
 	int allies = 0;
@@ -420,7 +425,7 @@ long horizonDefensePoint(int x, int y,int a[][MAX])
 	totalVal += defensePoint[enemies];
 	return totalVal;
 }
-long mainDiagonalDefensePoint(int x, int y,int a[][MAX])
+long Board::mainDiagonalDefensePoint(int x, int y,int a[][MAX])
 {
 	long totalVal = 0;
 	int allies = 0;
@@ -467,7 +472,7 @@ long mainDiagonalDefensePoint(int x, int y,int a[][MAX])
 	totalVal += defensePoint[enemies];
 	return totalVal;
 }
-long semiDiagonalDefensePoint(int x, int y,int a[][MAX])
+long Board::semiDiagonalDefensePoint(int x, int y,int a[][MAX])
 {
 	long totalVal = 0;
 	int allies = 0;
@@ -528,7 +533,7 @@ long semiDiagonalDefensePoint(int x, int y,int a[][MAX])
 
 
 
-void initializeBoard(int a[][MAX]){
+void Board::initializeBoard(int a[][MAX]){
     for( int i = 0; i < MAX; ++i){
         for(int j = 0; j < MAX; ++j){
             a[i][j] = 0;
@@ -536,7 +541,7 @@ void initializeBoard(int a[][MAX]){
     }
 }
 
-void displayBoard(int a[][MAX]){
+void Board::displayBoard(int a[][MAX]){
     //system("cls");
     for( int i = 0; i < MAX; ++i){
         for(int j = 0; j < MAX; ++j){
@@ -547,12 +552,12 @@ void displayBoard(int a[][MAX]){
 }
 
 
-bool validMove(int x, int y, int a[][MAX]){
+bool Board::validMove(int x, int y, int a[][MAX]){
     if(a[y][x] == 0 && x <= 15 && y <= 15) return true;
     else return false;
 }
 
-bool checkXWinBlock(int a[][MAX]){
+bool Board::checkXWinBlock(int a[][MAX]){
     // check hang ngang
     for(int i = 0; i < MAX; i++){
         for(int j = 0; j < MAX; j++){
@@ -606,7 +611,7 @@ bool checkXWinBlock(int a[][MAX]){
 
 }
 
-bool checkOWinBlock(int a[][MAX]){
+bool Board::checkOWinBlock(int a[][MAX]){
     // check hang ngang
     for(int i = 0; i < MAX; i++){
         for(int j = 0; j < MAX; j++){

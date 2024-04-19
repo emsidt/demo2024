@@ -8,8 +8,9 @@ int twoPlayer(int a[][MAX], int &x, int &y, int &count, SDL_Event &event, bool q
 SDL_Renderer* renderer, Mix_Chunk *&audio)
 {
     Media media;
+    Board board;
 	count = 0;
-	initializeBoard(a);
+	board.initializeBoard(a);
 	texture = media.loadTexture("image/play0.PNG", renderer);
 	media.renderTexture(texture, renderer);
 
@@ -33,20 +34,20 @@ SDL_Renderer* renderer, Mix_Chunk *&audio)
 					media.standardCoordinate(x, y);
 					//std::cout << "Toa do chuan hoa " << y << " : " << x << std::endl;
 					//inputPlayer(a, x, y, count);
-					if(validMove(x, y, a))
+					if(board.validMove(x, y, a))
 					{
 						if(count < 256)
 						{
 							if(count % 2 == 0)
 							{
 								a[y][x] = 1;
-								displayBoard(a);
+								board.displayBoard(a);
 								SDL_Texture* tx1 = media.loadTexture("image/xcell.png", renderer);
 								media.renderTexture(tx1, renderer, x*34+4+63+x/6, y*34+4+50, 25, 25);
 								SDL_RenderPresent(renderer);
 								media.playMusic("sound_effects/xplay.wav", audio);
 								count++;
-								if(checkXWinBlock(a))
+								if(board.checkXWinBlock(a))
 								{
 									//SDL_Delay(2000);
 									std::cout << "x won" << std::endl;
@@ -59,13 +60,13 @@ SDL_Renderer* renderer, Mix_Chunk *&audio)
 							else
 							{
 								a[y][x] = 2;
-								displayBoard(a);
+								board.displayBoard(a);
 								SDL_Texture* tx1 = media.loadTexture("image/ocell.png", renderer);
 								media.renderTexture(tx1, renderer, x*34+4+63+x/6, y*34+4+50, 25, 25);
 								SDL_RenderPresent(renderer);
 								media.playMusic("sound_effects/oplay.wav", audio);
 								count++;
-								if(checkOWinBlock(a))
+								if(board.checkOWinBlock(a))
 								{
 									//SDL_Delay(2000);
 									std::cout << "o won" << std::endl;
@@ -86,6 +87,10 @@ SDL_Renderer* renderer, Mix_Chunk *&audio)
 						}
 					}
 				}
+				if( 1085 <= x && x <= 1165 && 25 <= y && y <= 70 )
+                {
+						return 4;
+                }
 			}
 		case SDL_MOUSEMOTION:
 			SDL_GetMouseState(&x, &y);

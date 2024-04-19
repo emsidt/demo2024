@@ -1,11 +1,6 @@
 
 #include "media.h"
 
-SDL_Renderer* renderer;
-SDL_Texture* texture;
-//int x, y;
-
-
 void Media::initSDL()
 {
 	if(SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0 ){
@@ -22,6 +17,8 @@ void Media::initSDL()
         }
 		else{
         renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+        SDL_Texture *texture = loadTexture("image/mainmenu.PNG", renderer);
+        renderTexture(texture, renderer);
 		}
 	}
 	if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0 )

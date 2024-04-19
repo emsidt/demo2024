@@ -11,10 +11,14 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 			SDL_Renderer* renderer, Mix_Chunk *&audio)
 {
 	count = 0;
+	Board board;
 	Media media;
-	initializeBoard(a);
+	board.initializeBoard(a);
 	texture = media.loadTexture("image/play0.PNG", renderer);
 	media.renderTexture(texture, renderer);
+
+	//media.music == nullptr;
+	//Mix_PlayMusic(media.music, -1);
 
 	botPLay:
 				Move bot;
@@ -25,18 +29,18 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 				}
 				else
 				{
-					bot = findBestMove(a);
+					bot = findBestMove(a, board);
 				}
 
 				//std::cout << bot.x << " " << bot.y << std::endl;
 				x = bot.x;
 				y = bot.y;
-				if (validMove(x, y, a))
+				if (board.validMove(x, y, a))
 				{
 					if(count % 2 == 0)
 					{
 						a[y][x] = 1;
-						displayBoard(a);
+						board.displayBoard(a);
                         SDL_Delay(500);
 						std::cout << std::endl;
 						SDL_Texture* tx1 = media.loadTexture("image/xcell.png", renderer);
@@ -47,7 +51,7 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 
 
 						count++;
-						if(checkXWinBlock(a))
+						if(board.checkXWinBlock(a))
 						{
 							SDL_Delay(3000);
 							//std::cout << "o won" << std::endl;
@@ -79,13 +83,13 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 						media.standardCoordinate(x, y);
 						//std::cout << "Toa do chuan hoa " << y << " : " << x << std::endl;
 
-						if(validMove(x, y, a))
+						if(board.validMove(x, y, a))
 						{
 
 							if(count % 2 != 0)
 							{
 								a[y][x] = 2;
-								displayBoard(a);
+								board.displayBoard(a);
 								std::cout << std::endl;
 								SDL_Texture* tx1 = media.loadTexture("image/ocell.png", renderer);
 
@@ -93,7 +97,7 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 								SDL_RenderPresent(renderer);
 								media.playMusic("sound_effects/xplay.wav", audio);
 								count++;
-								if(checkOWinBlock(a))
+								if(board.checkOWinBlock(a))
 								{
 									SDL_Delay(2000);
 									//std::cout << "x won" << std::endl;
@@ -125,7 +129,7 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 
 }
 
-Move findBestMove(int a[][MAX])
+Move findBestMove(int a[][MAX], Board &board)
 {
 	Move bestMove;
 	bestMove.x = 0;
@@ -139,16 +143,16 @@ Move findBestMove(int a[][MAX])
 			if (a[i][j] == 0)
 			{
 				long attackVal
-				= verticalAttackPoint(i, j, a)
-				+ horizonAttackPoint(i, j, a)
-				+ semiDiagonalAttackPoint(i, j, a)
-				+ mainDiagonalAttackPoint(i, j, a);
+				= board.verticalAttackPoint(i, j, a)
+				+ board.horizonAttackPoint(i, j, a)
+				+ board.semiDiagonalAttackPoint(i, j, a)
+				+ board.mainDiagonalAttackPoint(i, j, a);
 
 				long defenseVal
-				= verticalDefensePoint(i, j, a)
-				+ horizonDefensePoint(i, j, a)
-				+ semiDiagonalDefensePoint(i, j, a)
-				+ mainDiagonalDefensePoint(i, j, a);
+				= board.verticalDefensePoint(i, j, a)
+				+ board.horizonDefensePoint(i, j, a)
+				+ board.semiDiagonalDefensePoint(i, j, a)
+				+ board.mainDiagonalDefensePoint(i, j, a);
 
 				long tempVal;
 				if (attackVal > defenseVal)
