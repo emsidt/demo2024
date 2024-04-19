@@ -402,15 +402,16 @@
 	"begin_code.h"
 	"close_code.h"
 
-1713513082 source:c:\file codeblocks\caro\main.cpp
+1713516410 source:c:\file codeblocks\caro\main.cpp
 	"media.h"
 	"twopplayer.h"
 	"oneplayer.h"
 	"constant.h"
+	"game.h"
 
 1710323866 c:\file codeblocks\caro\main.h
 
-1713512447 source:c:\file codeblocks\caro\twoplayer.cpp
+1713514385 source:c:\file codeblocks\caro\twoplayer.cpp
 	"twopplayer.h"
 	"media.h"
 
@@ -1367,11 +1368,21 @@
 	<SDL_ttf.h>
 	"constant.h"
 
-1713266567 c:\file codeblocks\caro\constant.h
+1713516065 c:\file codeblocks\caro\constant.h
 	<SDL_mixer.h>
 
 1713195082 c:\mingw_dev_lib\sdl2_ttf-devel-2.22.0-mingw\sdl2_ttf-2.22.0\x86_64-w64-mingw32\include\sdl2\sdl_ttf.h
 	"SDL.h"
 	"begin_code.h"
 	"close_code.h"
+
+1713516466 source:c:\file codeblocks\caro\game.cpp
+	"game.h"
+
+1713516108 c:\file codeblocks\caro\game.h
+	"constant.h"
+	"media.h"
+	"oneplayer.h"
+	"twopplayer.h"
+	"game_func.h"
 
