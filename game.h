@@ -4,8 +4,7 @@
 #include "constant.h"
 #include "media.h"
 #include "oneplayer.h"
-#include "twopplayer.h"
-#include "game_func.h"
+#include "twoplayer.h"
 
 struct Game
 {
