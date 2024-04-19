@@ -4,7 +4,7 @@
 //int a[MAX][MAX];
 //SDL_Event event;
 
-int twoPlayer(int a[][MAX], int &x, int &y, int &count, SDL_Event &event, bool quit, SDL_Texture* texture,
+int twoPlayer(int a[][MAX], int &x, int &y, int &count, SDL_Event &event, bool isRunning, SDL_Texture* texture,
 SDL_Renderer* renderer, Mix_Chunk *&audio)
 {
     Media media;
@@ -15,7 +15,7 @@ SDL_Renderer* renderer, Mix_Chunk *&audio)
 	media.renderTexture(texture, renderer);
 
 
-	while(!quit)
+	while(isRunning)
 	{
 		//displayBoard(a);
 		SDL_PollEvent(&event);
@@ -23,7 +23,7 @@ SDL_Renderer* renderer, Mix_Chunk *&audio)
 		switch(event.type)
 		{
 		case SDL_QUIT:
-			quit = true;
+			isRunning = true;
 		case SDL_MOUSEBUTTONDOWN:
 			if(SDL_BUTTON_LEFT == event.button.button)
 			{
@@ -40,6 +40,10 @@ SDL_Renderer* renderer, Mix_Chunk *&audio)
 						{
 							if(count % 2 == 0)
 							{
+							    SDL_Texture *tx0 = media.loadTexture("image/default.png", renderer);
+							    media.renderTexture(tx0, renderer, 620, 0, 580, 640);
+							    SDL_Texture *tx = media.loadTexture("image/turno.png", renderer);
+							    media.renderTexture(tx, renderer, 617, 0, 240, 640);
 								a[y][x] = 1;
 								board.displayBoard(a);
 								SDL_Texture* tx1 = media.loadTexture("image/xcell.png", renderer);
@@ -51,7 +55,7 @@ SDL_Renderer* renderer, Mix_Chunk *&audio)
 								{
 									//SDL_Delay(2000);
 									std::cout << "x won" << std::endl;
-									SDL_Texture* tx2 = media.loadTexture("image/xwon0.PNG", renderer);
+									SDL_Texture* tx2 = media.loadTexture("image/xwon.PNG", renderer);
 									media.renderTexture(tx2, renderer);
 									return 1;
 								}
@@ -59,6 +63,10 @@ SDL_Renderer* renderer, Mix_Chunk *&audio)
 
 							else
 							{
+							    SDL_Texture *tx0 = media.loadTexture("image/default.png", renderer);
+							    media.renderTexture(tx0, renderer, 620, 0, 580, 640);
+							    SDL_Texture *tx = media.loadTexture("image/turnx.png", renderer);
+							    media.renderTexture(tx, renderer, 620, 0, 240, 640);
 								a[y][x] = 2;
 								board.displayBoard(a);
 								SDL_Texture* tx1 = media.loadTexture("image/ocell.png", renderer);
@@ -70,7 +78,7 @@ SDL_Renderer* renderer, Mix_Chunk *&audio)
 								{
 									//SDL_Delay(2000);
 									std::cout << "o won" << std::endl;
-									SDL_Texture* tx2 = media.loadTexture("image/owon0.PNG", renderer);
+									SDL_Texture* tx2 = media.loadTexture("image/owon.PNG", renderer);
 									media.renderTexture(tx2, renderer);
 									media.playMusic("sound_effects/owin.wav", audio);
 									return 2;
@@ -81,7 +89,7 @@ SDL_Renderer* renderer, Mix_Chunk *&audio)
 						else
 						{
 							std::cout << "draw!" << std::endl;
-							SDL_Texture* tx2 = media.loadTexture("image/draw0.PNG", renderer);
+							SDL_Texture* tx2 = media.loadTexture("image/draw.PNG", renderer);
 							media.renderTexture(tx2, renderer);
 							return 3;
 						}
@@ -94,10 +102,8 @@ SDL_Renderer* renderer, Mix_Chunk *&audio)
 			}
 		case SDL_MOUSEMOTION:
 			SDL_GetMouseState(&x, &y);
-			if( 1085 <= x && x <= 1165 && 25 <= y && y <= 70 )
-				{
-					std::cout << "back" << std::endl;
-				}
+
+            media.renderPlay(texture, renderer, x, y);
 			break;
 		}
 	}

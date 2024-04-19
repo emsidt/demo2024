@@ -53,17 +53,17 @@
 			<Add directory="../../MinGW/SDL2_mixer-devel-2.8.0-mingw/SDL2_mixer-2.8.0/x86_64-w64-mingw32/lib" />
 		</Linker>
 		<Unit filename="constant.h" />
+		<Unit filename="game.cpp" />
+		<Unit filename="game.h" />
 		<Unit filename="game_func.cpp" />
 		<Unit filename="game_func.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="media.cpp" />
 		<Unit filename="media.h" />
-		<Unit filename="music.cpp" />
-		<Unit filename="music.h" />
 		<Unit filename="oneplayer.cpp" />
 		<Unit filename="oneplayer.h" />
 		<Unit filename="twoplayer.cpp" />
-		<Unit filename="twopplayer.h" />
+		<Unit filename="twoplayer.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

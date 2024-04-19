@@ -1,8 +1,7 @@
-#include "media.h"
 #include <ctime>
 #include "constant.h"
 #include <iostream>
-
+#include "media.h"
 #include "game_func.h"
 
 
@@ -561,50 +560,51 @@ bool Board::checkXWinBlock(int a[][MAX]){
     // check hang ngang
     for(int i = 0; i < MAX; i++){
         for(int j = 0; j < MAX; j++){
-            if(a[i][j] == 1){
-                if(a[i][j+1] == 1 && a[i][j+2] == 1 && a[i][j+3] == 1 && a[i][j+4] == 1 && (a[i][j+5] == 0 || a[i][j-1] == 0)) return true;
-                if(a[i][j+1] == 1 && a[i][j+2] == 1 && a[i][j+3] == 1 && a[i][j-1] == 1 && (a[i][j+4] == 0 || a[i][j-2] == 0)) return true;
-                if(a[i][j+1] == 1 && a[i][j+2] == 1 && a[i][j-1] == 1 && a[i][j-2] == 1 && (a[i][j+3] == 0 || a[i][j-3] == 0)) return true;
-                if(a[i][j+1] == 1 && a[i][j-1] == 1 && a[i][j-2] == 1 && a[i][j-3] == 1 && (a[i][j+2] == 0 || a[i][j-4] == 0)) return true;
-                if(a[i][j-1] == 1 && a[i][j-2] == 1 && a[i][j-3] == 1 && a[i][j-4] == 1 && (a[i][j+1] == 0 || a[i][j-5] == 0)) return true;
-            }
+            if(a[i][j] == 1
+                && a[i][j+1] == 1
+                && a[i][j+2] == 1
+                && a[i][j+3] == 1
+                && a[i][j+4] == 1
+                && (a[i][j+5] == 0 || a[i][j-1] == 0))
+
+                return true;
         }
     }
     //check hang doc
     for(int i = 0; i < MAX; i++){
         for(int j = 0; j < MAX; j++){
-            if(a[i][j] == 1){
-                if(a[i+1][j] == 1 && a[i+2][j] == 1 && a[i+3][j] == 1 && a[i+4][j] == 1 && (a[i-1][j] == 0 || a[i+5][j] == 0)) return true;
-                if(a[i-1][j] == 1 && a[i+1][j] == 1 && a[i+2][j] == 1 && a[i+3][j] == 1 && (a[i-2][j] == 0 || a[i+4][j] == 0)) return true;
-                if(a[i-2][j] == 1 && a[i-1][j] == 1 && a[i+1][j] == 1 && a[i+2][j] == 1 && (a[i-3][j] == 0 || a[i+3][j] == 0)) return true;
-                if(a[i-3][j] == 1 && a[i-2][j] == 1 && a[i-1][j] == 1 && a[i+1][j] == 1 && (a[i-4][j] == 0 || a[i+2][j] == 0)) return true;
-                if(a[i-4][j] == 1 && a[i-3][j] == 1 && a[i-2][j] == 1 && a[i-1][j] == 1 && (a[i-5][j] == 0 || a[i+1][j] == 0)) return true;
-            }
+            if(a[i][j] == 1
+                && a[i+1][j] == 1
+                && a[i+2][j] == 1
+                && a[i+3][j] == 1
+                && a[i+4][j] == 1
+                && (a[i-1][j] == 0 || a[i+5][j] == 0))
+                return true;
         }
     }
     // check hang cheo 1
     for(int i = 0; i < MAX; i++){
         for(int j = 0; j < MAX; j++){
-            if(a[i][j] == 1){
-                if(a[i+1][j+1] == 1 && a[i+2][j+2] == 1 && a[i+3][j+3] == 1 && a[i+4][j+4] == 1 && (a[i-1][j-1] == 0 || a[i+5][j+5] == 0)) return true;
-                if(a[i-1][j-1] == 1 && a[i+1][j+1] == 1 && a[i+2][j+2] == 1 && a[i+3][j+3] == 1 && (a[i-2][j-2] == 0 || a[i+4][j+4] == 0)) return true;
-                if(a[i-2][j-2] == 1 && a[i-1][j-1] == 1 && a[i+1][j+1] == 1 && a[i+2][j+2] == 1 && (a[i-3][j-3] == 0 || a[i+3][j+3] == 0)) return true;
-                if(a[i-3][j-3] == 1 && a[i-2][j-2] == 1 && a[i-1][j-1] == 1 && a[i+1][j+1] == 1 && (a[i-4][j-4] == 0 || a[i+2][j+2] == 0)) return true;
-                if(a[i-4][j-4] == 1 && a[i-3][j-3] == 1 && a[i-2][j-2] == 1 && a[i-1][j-1] == 1 && (a[i-5][j-5] == 0 || a[i+1][j+1] == 0)) return true;
-            }
+            if(a[i][j] == 1
+                && a[i+1][j+1] == 1
+                && a[i+2][j+2] == 1
+                && a[i+3][j+3] == 1
+                && a[i+4][j+4] == 1
+                && (a[i-1][j-1] == 0 || a[i+5][j+5] == 0))
+                return true;
         }
     }
 
     // check hang cheo 2
     for(int i = 0; i < MAX; i++){
         for(int j = 0; j < MAX; j++){
-            if(a[i][j] == 1){
-                if(a[i+1][j-1] == 1 && a[i+2][j-2] == 1 && a[i+3][j-3] == 1 && a[i+4][j-4] == 1 && (a[i-1][j+1] == 0 || a[i+5][j-5] == 0)) return true;
-                if(a[i+1][j-1] == 1 && a[i+2][j-2] == 1 && a[i+3][j-3] == 1 && a[i-1][j+1] == 1 && (a[i-2][j+2] == 0 || a[i+4][j-4] == 0)) return true;
-                if(a[i+2][j-2] == 1 && a[i+2][j-2] == 1 && a[i-1][j+1] == 1 && a[i-2][j+2] == 1 && (a[i-3][j+3] == 0 || a[i+3][j-3] == 0)) return true;
-                if(a[i+1][j-1] == 1 && a[i-1][j+1] == 1 && a[i-2][j+2] == 1 && a[i-3][j+3] == 1 && (a[i-4][j+4] == 0 || a[i+2][j-2] == 0)) return true;
-                if(a[i-1][j+1] == 1 && a[i-2][j+2] == 1 && a[i-3][j+3] == 1 && a[i-4][j+4] == 1 && (a[i-5][j+5] == 0 || a[i+1][j-1] == 0)) return true;
-            }
+            if(a[i][j] == 1
+                && a[i+1][j-1] == 1
+                && a[i+2][j-2] == 1
+                && a[i+3][j-3] == 1
+                && a[i+4][j-4] == 1
+                && (a[i-1][j+1] == 0 || a[i+5][j-5] == 0))
+                return true;
         }
     }
     return false;
@@ -615,50 +615,52 @@ bool Board::checkOWinBlock(int a[][MAX]){
     // check hang ngang
     for(int i = 0; i < MAX; i++){
         for(int j = 0; j < MAX; j++){
-            if(a[i][j] == 2){
-                if(a[i][j+1] == 2 && a[i][j+2] == 2 && a[i][j+3] == 2 && a[i][j+4] == 2 && (a[i][j+5] == 0 || a[i][j-1] == 0)) return true;
-                if(a[i][j+1] == 2 && a[i][j+2] == 2 && a[i][j+3] == 2 && a[i][j-1] == 2 && (a[i][j+4] == 0 || a[i][j-2] == 0)) return true;
-                if(a[i][j+1] == 2 && a[i][j+2] == 2 && a[i][j-1] == 2 && a[i][j-2] == 2 && (a[i][j+3] == 0 || a[i][j-3] == 0)) return true;
-                if(a[i][j+1] == 2 && a[i][j-1] == 2 && a[i][j-2] == 2 && a[i][j-3] == 2 && (a[i][j+2] == 0 || a[i][j-4] == 0)) return true;
-                if(a[i][j-1] == 2 && a[i][j-2] == 2 && a[i][j-3] == 2 && a[i][j-4] == 2 && (a[i][j+1] == 0 || a[i][j-5] == 0)) return true;
-            }
+            if(a[i][j] == 2
+                && a[i][j+1] == 2
+                && a[i][j+2] == 2
+                && a[i][j+3] == 2
+                && a[i][j+4] == 2
+                && (a[i][j+5] == 0 || a[i][j-1] == 0))
+                return true;
         }
     }
     //check hang doc
     for(int i = 0; i < MAX; i++){
         for(int j = 0; j < MAX; j++){
-            if(a[i][j] == 2){
-                if(a[i+1][j] == 2 && a[i+2][j] == 2 && a[i+3][j] == 2 && a[i+4][j] == 2 && (a[i-1][j] == 0 || a[i+5][j] == 0)) return true;
-                if(a[i-1][j] == 2 && a[i+1][j] == 2 && a[i+2][j] == 2 && a[i+3][j] == 2 && (a[i-2][j] == 0 || a[i+4][j] == 0)) return true;
-                if(a[i-2][j] == 2 && a[i-1][j] == 2 && a[i+1][j] == 2 && a[i+2][j] == 2 && (a[i-3][j] == 0 || a[i+3][j] == 0)) return true;
-                if(a[i-3][j] == 2 && a[i-2][j] == 2 && a[i-1][j] == 2 && a[i+1][j] == 2 && (a[i-4][j] == 0 || a[i+2][j] == 0)) return true;
-                if(a[i-4][j] == 2 && a[i-3][j] == 2 && a[i-2][j] == 2 && a[i-1][j] == 2 && (a[i-5][j] == 0 || a[i+1][j] == 0)) return true;
-            }
+            if(a[i][j] == 2
+                && a[i+1][j] == 2
+                && a[i+2][j] == 2
+                && a[i+3][j] == 2
+                && a[i+4][j] == 2
+                && (a[i-1][j] == 0 || a[i+5][j] == 0))
+                return true;
         }
     }
     // check hang cheo 1
     for(int i = 0; i < MAX; i++){
         for(int j = 0; j < MAX; j++){
-            if(a[i][j] == 2){
-                if(a[i+1][j+1] == 2 && a[i+2][j+2] == 2 && a[i+3][j+3] == 2 && a[i+4][j+4] == 2 && (a[i-1][j-1] == 0 || a[i+5][j+5] == 0)) return true;
-                if(a[i-1][j-1] == 2 && a[i+1][j+1] == 2 && a[i+2][j+2] == 2 && a[i+3][j+3] == 2 && (a[i-2][j-2] == 0 || a[i+4][j+4] == 0)) return true;
-                if(a[i-2][j-2] == 2 && a[i-1][j-1] == 2 && a[i+1][j+1] == 2 && a[i+2][j+2] == 2 && (a[i-3][j-3] == 0 || a[i+3][j+3] == 0)) return true;
-                if(a[i-3][j-3] == 2 && a[i-2][j-2] == 2 && a[i-1][j-1] == 2 && a[i+1][j+1] == 2 && (a[i-4][j-4] == 0 || a[i+2][j+2] == 0)) return true;
-                if(a[i-4][j-4] == 2 && a[i-3][j-3] == 2 && a[i-2][j-2] == 2 && a[i-1][j-1] == 2 && (a[i-5][j-5] == 0 || a[i+1][j+1] == 0)) return true;
-            }
+            if(a[i][j] == 2
+                && a[i+1][j+1] == 2
+                && a[i+2][j+2] == 2
+                && a[i+3][j+3] == 2
+                && a[i+4][j+4] == 2
+                && (a[i-1][j-1] == 0 || a[i+5][j+5] == 0))
+                return true;
+
         }
     }
 
     // check hang cheo 2
     for(int i = 0; i < MAX; i++){
         for(int j = 0; j < MAX; j++){
-            if(a[i][j] == 2){
-                if(a[i+1][j-1] == 2 && a[i+2][j-2] == 2 && a[i+3][j-3] == 2 && a[i+4][j-4] == 2 && (a[i-1][j+1] == 0 || a[i+5][j-5] == 0)) return true;
-                if(a[i+1][j-1] == 2 && a[i+2][j-2] == 2 && a[i+3][j-3] == 2 && a[i-1][j+1] == 2 && (a[i-2][j+2] == 0 || a[i+4][j-4] == 0)) return true;
-                if(a[i+2][j-2] == 2 && a[i+2][j-2] == 2 && a[i-1][j+1] == 2 && a[i-2][j+2] == 2 && (a[i-3][j+3] == 0 || a[i+3][j-3] == 0)) return true;
-                if(a[i+1][j-1] == 2 && a[i-1][j+1] == 2 && a[i-2][j+2] == 2 && a[i-3][j+3] == 2 && (a[i-4][j+4] == 0 || a[i+2][j-2] == 0)) return true;
-                if(a[i-1][j+1] == 2 && a[i-2][j+2] == 2 && a[i-3][j+3] == 2 && a[i-4][j+4] == 2 && (a[i-5][j+5] == 0 || a[i+1][j-1] == 0)) return true;
-            }
+            if(a[i][j] == 2
+                && a[i+1][j-1] == 2
+                && a[i+2][j-2] == 2
+                && a[i+3][j-3] == 2
+                && a[i+4][j-4] == 2
+                && (a[i-1][j+1] == 0 || a[i+5][j-5] == 0))
+                return true;
+
         }
     }
     return false;

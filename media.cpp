@@ -139,6 +139,22 @@ int Media::clickInPlay(int &x, int &y)
 	}
 }
 
+void Media::renderPlay(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y)
+{
+    if( 1085 <= x && x <= 1165 && 25 <= y && y <= 70 )
+    {
+        //std::cout << "back" << std::endl;
+        texture = loadTexture("image/playeffect.PNG", renderer);
+		renderTexture(texture, renderer, 1080, 0, 120, 100);
+    }
+    else
+    {
+        //std::cout << "normal" << std::endl;
+        texture = loadTexture("image/playeffect1.PNG", renderer);
+		renderTexture(texture, renderer, 1080, 0, 120, 100);
+    }
+}
+
 void Media::renderMenu(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y)
 {
 	int tmp = clickInMenu(x, y);

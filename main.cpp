@@ -1,7 +1,4 @@
-#include "media.h"
-#include "twoplayer.h"
-#include "oneplayer.h"
-#include "constant.h"
+
 #include "game.h"
 
 int main(int argc, char* args[])
@@ -10,7 +7,10 @@ int main(int argc, char* args[])
 
     game.init();
 
-    game.play();
+    while (game.isRunning)
+    {
+       game.isRunning = game.play();
+    }
 
 	game.quitGame();
 

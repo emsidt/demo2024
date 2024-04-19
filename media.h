@@ -48,6 +48,7 @@ struct Media
 
     void renderResult(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y);
 
+    void renderPlay(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y);
 // am thanh
     void playMusic(std::string path ,Mix_Chunk *audio);
 

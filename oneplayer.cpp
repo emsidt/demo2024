@@ -6,7 +6,7 @@
 #include <algorithm>
 
 int onePlayer(int a[][MAX], int &x, int &y, int &count,
-			SDL_Event &event, bool quit,
+			SDL_Event &event, bool isRunning,
 			SDL_Texture* texture,
 			SDL_Renderer* renderer, Mix_Chunk *&audio)
 {
@@ -55,7 +55,7 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 						{
 							SDL_Delay(3000);
 							//std::cout << "o won" << std::endl;
-							SDL_Texture* tx2 = media.loadTexture("image/xwon0.PNG", renderer);
+							SDL_Texture* tx2 = media.loadTexture("image/xwon.PNG", renderer);
 							media.renderTexture(tx2, renderer);
 
 							return 2;
@@ -65,14 +65,14 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 				else goto botPLay;
 				goto humanPlay;
 	humanPlay:
-	while(!quit)
+	while(isRunning)
 	{
 			SDL_PollEvent(&event);
 
 			switch(event.type)
 			{
 			case SDL_QUIT:
-				quit = true;
+				isRunning = true;
 			case SDL_MOUSEBUTTONDOWN:
 				if(SDL_BUTTON_LEFT == event.button.button)
 				{
@@ -101,7 +101,7 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 								{
 									SDL_Delay(2000);
 									//std::cout << "x won" << std::endl;
-									SDL_Texture* tx2 = media.loadTexture("image/owon0.PNG", renderer);
+									SDL_Texture* tx2 = media.loadTexture("image/owon.PNG", renderer);
                                     media.playMusic("sound_effects/owin.wav", audio);
 									media.renderTexture(tx2, renderer);
 									return 1;
@@ -117,10 +117,9 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 				}
 			case SDL_MOUSEMOTION:
 				SDL_GetMouseState(&x, &y);
-				if( 1085 <= x && x <= 1165 && 25 <= y && y <= 70 )
-					{
-						std::cout << "back" << std::endl;
-					}
+
+				media.renderPlay(texture, renderer, x, y);
+
 				break;
 			}
 		goto botPLay;

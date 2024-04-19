@@ -10,17 +10,17 @@ struct Game
 {
 
     SDL_Event event;
-	int gameMode = 0; // bien lua chon che do
+	int mode = 0; // bien lua chon che do
 	int choose = 0;
 	int checkwin = 0; // kiem tra thang, thua, hoa
-	bool quit = false;
+	bool isRunning = true;
     int x, y;
 
     Media media;
     Board board;
 
 
-    void play();
+    bool play();
     void init();
     void quitGame();
 
