@@ -5,24 +5,19 @@
 int main(int argc, char* args[])
 {
 
-    SDL_Window* window = nullptr;
-	SDL_Renderer* renderer = nullptr;
-	SDL_Event event;
-	SDL_Texture* texture = nullptr;
-	Mix_Music *music = nullptr;
-	Mix_Chunk *audio = nullptr;
+    Media media;
 	int x, y;
 	int a[MAX][MAX];
 	int count = 0;
-
+    SDL_Event event;
 	int gameMode = 0; // bien lua chon che do
 	int choose = 0;
 	int checkwin = 0; // kiem tra thang, thua, hoa
 	bool quit = false;
 
-	initSDL(window, renderer, music, audio); // khoi tao man hinh window
-	texture = loadTexture("image/mainmenu.PNG", renderer);
-	renderTexture(texture, renderer);
+	media.initSDL(); // khoi tao man hinh window
+	media.texture = media.loadTexture("image/mainmenu.PNG", media.renderer);
+	media.renderTexture(media.texture, media.renderer);
 
 	menu:
 
@@ -39,8 +34,8 @@ int main(int argc, char* args[])
 		case SDL_MOUSEBUTTONDOWN:
 			if(SDL_BUTTON_LEFT == event.button.button)
 			{
-				gameMode = clickInMenu(x, y);
-				playMusic("sound_effects/mouseclick.wav", audio);
+				gameMode = media.clickInMenu(x, y);
+				media.playMusic("sound_effects/mouseclick.wav", media.audio);
 				switch(gameMode)
 				{
 				case 1:
@@ -55,20 +50,20 @@ int main(int argc, char* args[])
 				}
 			}
 		case SDL_MOUSEMOTION:
-			renderMenu(texture, renderer, x, y);
+			media.renderMenu(media.texture, media.renderer, x, y);
 			break;
 		}
 	}
 
 	oneplayer:
-		checkwin = onePlayer(a, x, y,count, event, quit, texture, renderer, audio);
+		checkwin = onePlayer(a, x, y,count, event, quit, media.texture, media.renderer, media.audio);
 		//std::cout << "check win = " << checkwin << std::endl;
 		if (checkwin == 3) goto menu;
 		goto result;
 
 	twoplayer:
 
-		checkwin = twoPlayer(a, x, y,count, event, quit, texture, renderer, audio);
+		checkwin = twoPlayer(a, x, y,count, event, quit, media.texture, media.renderer, media.audio);
 		if (checkwin == 3) goto menu;
 
 		//std::cout << "check win = " << checkwin << std::endl;
@@ -89,8 +84,8 @@ int main(int argc, char* args[])
 			case SDL_MOUSEBUTTONDOWN:
 				if(SDL_BUTTON_LEFT == event.button.button)
 				{
-					choose = clickInResult(x, y);
-                    playMusic("sound_effects/mouseclick.wav", audio);
+					choose = media.clickInResult(x, y);
+                    media.playMusic("sound_effects/mouseclick.wav", media.audio);
 
 					switch(gameMode)
 					{
@@ -111,11 +106,11 @@ int main(int argc, char* args[])
 					}
 				}
 			case SDL_MOUSEMOTION:
-				renderResult(texture, renderer, x, y);
+				media.renderResult(media.texture, media.renderer, x, y);
 				break;
 			}
 		}
 
-	quitSDL(window, renderer, music, audio);
+	media.quitSDL();
 	return 0;
 }

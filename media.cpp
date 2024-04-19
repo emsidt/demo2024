@@ -6,7 +6,7 @@ SDL_Texture* texture;
 //int x, y;
 
 
-void initSDL(SDL_Window* &window, SDL_Renderer* &renderer, Mix_Music *&music,Mix_Chunk *&audio)
+void Media::initSDL()
 {
 	if(SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0 ){
         printf( "SDL could not initialize! SDL Error: %s\n", SDL_GetError() );
@@ -30,16 +30,16 @@ void initSDL(SDL_Window* &window, SDL_Renderer* &renderer, Mix_Music *&music,Mix
     }
     else
     {
-        music = Mix_LoadMUS("sound_effects/theme.wav");
+        music = Mix_LoadMUS("sound_effects/theme2.mp3");
         if( music == NULL )
         {
         printf( "Failed to load beat music! SDL_mixer Error: %s\n", Mix_GetError() );
         }
-        //Mix_PlayMusic(music, -1);
+        Mix_PlayMusic(music, -1);
     }
 }
 
-SDL_Texture* loadTexture(std::string path, SDL_Renderer* renderer)
+SDL_Texture* Media::loadTexture(std::string path, SDL_Renderer* renderer)
 {
     texture = nullptr;
     SDL_Surface* loadedIMG = IMG_Load(path.c_str());
@@ -49,7 +49,7 @@ SDL_Texture* loadTexture(std::string path, SDL_Renderer* renderer)
     return texture;
 }
 
-void renderTexture(SDL_Texture* texture,SDL_Renderer* renderer)
+void Media::renderTexture(SDL_Texture* texture,SDL_Renderer* renderer)
 {
         SDL_RenderCopy(renderer, texture, nullptr, nullptr );
         SDL_RenderPresent(renderer);
@@ -57,7 +57,7 @@ void renderTexture(SDL_Texture* texture,SDL_Renderer* renderer)
         SDL_free(texture);
 }
 
-void renderTexture(SDL_Texture *texture, SDL_Renderer *renderer, int x, int y, int w, int h){
+void Media::renderTexture(SDL_Texture *texture, SDL_Renderer *renderer, int x, int y, int w, int h){
     // Thiet lap hinh vuong ma chung ta muon ve anh vao trong
     SDL_Rect dst;
     dst.x = x;
@@ -71,13 +71,13 @@ void renderTexture(SDL_Texture *texture, SDL_Renderer *renderer, int x, int y, i
 	SDL_free(texture);
 }
 
-void standardCoordinate(int &x, int &y)
+void Media::standardCoordinate(int &x, int &y)
 {
 	x = (x - 63)/34;
 	y = (y - 50)/34;
 }
 
-void quitSDL(SDL_Window* window, SDL_Renderer* renderer, Mix_Music *&music, Mix_Chunk *&audio)
+void Media::quitSDL()
 {
     Mix_FreeMusic( music );
     Mix_FreeChunk( audio );
@@ -94,7 +94,7 @@ void quitSDL(SDL_Window* window, SDL_Renderer* renderer, Mix_Music *&music, Mix_
     SDL_Quit();
 }
 
-int clickInMenu(int &x, int &y)
+int Media::clickInMenu(int &x, int &y)
 {
 	//std::cout << "Toa do chuot " << x << " : " << y << std::endl;
 	if( 495 <= x && x <= 705 && 345 <= y && y <= 405 )
@@ -119,7 +119,7 @@ int clickInMenu(int &x, int &y)
 	}
 }
 
-int clickInResult(int &x, int &y)
+int Media::clickInResult(int &x, int &y)
 {
 	if( 480 <= x && x <= 715 && 365 <= y && y <= 435 )
 	{
@@ -134,7 +134,7 @@ int clickInResult(int &x, int &y)
 
 }
 
-int clickInPlay(int &x, int &y)
+int Media::clickInPlay(int &x, int &y)
 {
 	if( 1085 <= x && x <= 1165 && 25 <= y && y <= 70 )
 	{
@@ -142,7 +142,7 @@ int clickInPlay(int &x, int &y)
 	}
 }
 
-void renderMenu(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y)
+void Media::renderMenu(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y)
 {
 	int tmp = clickInMenu(x, y);
 	switch(tmp)
@@ -170,7 +170,7 @@ void renderMenu(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y)
 	}
 }
 
-void renderXWon(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y)
+void Media::renderXWon(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y)
 {
 	//SDL_GetMouseState(&x, &y);
 	int tmp = clickInResult(x, y);
@@ -193,11 +193,17 @@ void renderXWon(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y)
 
 }
 
-void renderOWon(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y);
+void Media::renderOWon(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y)
+{
 
-void renderDraw(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y);
+}
 
-void renderResult(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y)
+void Media::renderDraw(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y)
+{
+
+}
+
+void Media::renderResult(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y)
 {
 	//SDL_GetMouseState(&x, &y);
 	int tmp = clickInResult(x, y);
@@ -221,7 +227,7 @@ void renderResult(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y)
 	}
 }
 
-void playMusic(std::string path ,Mix_Chunk *audio)
+void Media::playMusic(std::string path ,Mix_Chunk *audio)
 {
     audio = Mix_LoadWAV(path.c_str());
     if(audio == nullptr)

@@ -11,9 +11,10 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 			SDL_Renderer* renderer, Mix_Chunk *&audio)
 {
 	count = 0;
+	Media media;
 	initializeBoard(a);
-	texture = loadTexture("image/play0.PNG", renderer);
-	renderTexture(texture, renderer);
+	texture = media.loadTexture("image/play0.PNG", renderer);
+	media.renderTexture(texture, renderer);
 
 	botPLay:
 				Move bot;
@@ -38,9 +39,9 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 						displayBoard(a);
                         SDL_Delay(500);
 						std::cout << std::endl;
-						SDL_Texture* tx1 = loadTexture("image/xcell.png", renderer);
-						renderTexture(tx1, renderer, x*34+4+63+x/6, y*34+4+50, 25, 25);
-						playMusic("sound_effects/oplay.wav", audio);
+						SDL_Texture* tx1 = media.loadTexture("image/xcell.png", renderer);
+						media.renderTexture(tx1, renderer, x*34+4+63+x/6, y*34+4+50, 25, 25);
+						media.playMusic("sound_effects/oplay.wav", audio);
 						SDL_RenderPresent(renderer);
 						//audio = nullptr;
 
@@ -50,8 +51,8 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 						{
 							SDL_Delay(3000);
 							//std::cout << "o won" << std::endl;
-							SDL_Texture* tx2 = loadTexture("image/xwon0.PNG", renderer);
-							renderTexture(tx2, renderer);
+							SDL_Texture* tx2 = media.loadTexture("image/xwon0.PNG", renderer);
+							media.renderTexture(tx2, renderer);
 
 							return 2;
 						}
@@ -75,7 +76,7 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 					if( 75 <= x && x <= 620 && 50 <= y && y <= 590 )
 					{
 						//std::cout << "Toa do chuot " << x << " : " << y << std::endl;
-						standardCoordinate(x, y);
+						media.standardCoordinate(x, y);
 						//std::cout << "Toa do chuan hoa " << y << " : " << x << std::endl;
 
 						if(validMove(x, y, a))
@@ -86,19 +87,19 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 								a[y][x] = 2;
 								displayBoard(a);
 								std::cout << std::endl;
-								SDL_Texture* tx1 = loadTexture("image/ocell.png", renderer);
+								SDL_Texture* tx1 = media.loadTexture("image/ocell.png", renderer);
 
-								renderTexture(tx1, renderer, x*34+4+63+x/6, y*34+4+50, 25, 25);
+								media.renderTexture(tx1, renderer, x*34+4+63+x/6, y*34+4+50, 25, 25);
 								SDL_RenderPresent(renderer);
-								playMusic("sound_effects/xplay.wav", audio);
+								media.playMusic("sound_effects/xplay.wav", audio);
 								count++;
 								if(checkOWinBlock(a))
 								{
 									SDL_Delay(2000);
 									//std::cout << "x won" << std::endl;
-									SDL_Texture* tx2 = loadTexture("image/owon0.PNG", renderer);
-                                    playMusic("sound_effects/owin.wav", audio);
-									renderTexture(tx2, renderer);
+									SDL_Texture* tx2 = media.loadTexture("image/owon0.PNG", renderer);
+                                    media.playMusic("sound_effects/owin.wav", audio);
+									media.renderTexture(tx2, renderer);
 									return 1;
 								}
 							}
