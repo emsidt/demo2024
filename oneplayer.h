@@ -1,5 +1,6 @@
 #ifndef _ONEPLAYER__H
 #define _ONEPLAYER__H
+
 #include <string>
 #include <iostream>
 #include <SDL.h>

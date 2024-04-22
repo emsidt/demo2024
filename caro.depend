@@ -427,7 +427,7 @@
 	<cmath>
 	<algorithm>
 
-1713512910 c:\file codeblocks\caro\oneplayer.h
+1713777602 c:\file codeblocks\caro\oneplayer.h
 	<string>
 	<iostream>
 	<SDL.h>
@@ -440,7 +440,7 @@
 1713512964 c:\file codeblocks\caro\game_func.h
 	"constant.h"
 
-1713582180 source:c:\file codeblocks\caro\game_func.cpp
+1713777306 source:c:\file codeblocks\caro\game_func.cpp
 	<ctime>
 	"constant.h"
 	<iostream>
@@ -1352,7 +1352,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1713621555 source:c:\file codeblocks\caro\media.cpp
+1713777017 source:c:\file codeblocks\caro\media.cpp
 	"media.h"
 
 1713535810 c:\file codeblocks\caro\media.h
@@ -1372,7 +1372,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1713534941 source:c:\file codeblocks\caro\game.cpp
+1713773792 source:c:\file codeblocks\caro\game.cpp
 	"game.h"
 
 1713534782 c:\file codeblocks\caro\game.h

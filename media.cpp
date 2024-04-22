@@ -32,7 +32,7 @@ void Media::initSDL()
         {
         printf( "Failed to load beat music! SDL_mixer Error: %s\n", Mix_GetError() );
         }
-        Mix_PlayMusic(music, -1);
+        // Mix_PlayMusic(music, -1);
     }
 }
 
@@ -114,6 +114,10 @@ int Media::clickInMenu(int &x, int &y)
 		//std::cout << "title" << std::endl;
 		return 4;
 	}
+	if (0<= x && x <= 200 && 0 <= y && y <= 200)
+    {
+        return 5;
+    }
 }
 
 int Media::clickInResult(int &x, int &y)

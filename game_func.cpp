@@ -33,7 +33,11 @@ bool Board::horizonBlockX(int a[][MAX])
                         break;
                     }
                 }
-                if (abs(x1 - x2) <= 6 && abs(x1 - x2) > 0) ok = true;
+                if (abs(x1 - x2) <= 6 && abs(x1 - x2) > 0)
+                {
+                    ok = true;
+                    // std::cout << "horizon true";
+                }
             }
         }
     }
@@ -67,7 +71,11 @@ bool Board::verticalBlockX(int a[][MAX])
                         break;
                     }
                 }
-                if (abs(x1 - x2) <= 6 && abs(x1 - x2) > 0) ok = true;
+                if (abs(x1 - x2) <= 6 && abs(x1 - x2) > 0)
+                {
+                    ok = true;
+                    // std::cout << "vertical true";
+                }
             }
         }
     }
@@ -101,7 +109,11 @@ bool Board::mainDiagonaBlockX(int a[][MAX])
                         break;
                     }
                 }
-                if (abs(x1 - x2) <= 6 && abs(x1 - x2) > 0) ok = true;
+                if (abs(x1 - x2) <= 6 && abs(x1 - x2) > 0)
+                {
+                    ok = true;
+                    // std::cout << "main diagonal true";
+                }
             }
 
         }
@@ -137,14 +149,18 @@ bool Board::semiDiagonaBlockX(int a[][MAX])
                         break;
                     }
                 }
-                if (abs(x1 - x2) <= 6 && abs(x1 - x2) > 0) ok = true;
+                if (abs(x1 - x2) <= 6 && abs(x1 - x2) > 0)
+                {
+                    ok = true;
+                    // std::cout << "semi diagonal true";
+                }
             }
         }
     }
     return ok;
 }
 
-long Board::verticalAttackPoint(int x, int y,int a[][MAX])
+long Board::verticalAttackPoint(int x, int y, int a[][MAX])
 {
 	long totalVal = 0;
 	int allies = 0;
@@ -384,7 +400,7 @@ long Board::verticalDefensePoint(int x, int y,int a[][MAX])
 		else break;
 	}
 
-	totalVal += defensePoint[enemies];
+	totalVal += defensePoint[enemies + 1];
 
 	return totalVal;
 }
@@ -421,7 +437,7 @@ long Board::horizonDefensePoint(int x, int y,int a[][MAX])
 		else break;
 	}
 
-	totalVal += defensePoint[enemies];
+	totalVal += defensePoint[enemies + 1];
 	return totalVal;
 }
 long Board::mainDiagonalDefensePoint(int x, int y,int a[][MAX])
@@ -468,7 +484,7 @@ long Board::mainDiagonalDefensePoint(int x, int y,int a[][MAX])
 		}
 	}
 
-	totalVal += defensePoint[enemies];
+	totalVal += defensePoint[enemies + 1];
 	return totalVal;
 }
 long Board::semiDiagonalDefensePoint(int x, int y,int a[][MAX])
@@ -515,7 +531,7 @@ long Board::semiDiagonalDefensePoint(int x, int y,int a[][MAX])
 		}
 	}
 
-	totalVal += defensePoint[enemies];
+	totalVal += defensePoint[enemies + 1];
 
 	return totalVal;
 }

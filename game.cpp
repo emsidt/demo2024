@@ -37,7 +37,10 @@ bool Game::play()
 					game.isRunning = false;
 					return false;
 					break;
-				}
+                case 4:
+                    Mix_PauseMusic();
+                default:
+                    Mix_ResumeMusic();		}
 			}
 		case SDL_MOUSEMOTION:
 			media.renderMenu(media.texture, media.renderer, game.x, game.y);
