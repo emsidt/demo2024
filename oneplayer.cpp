@@ -43,6 +43,10 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 						board.displayBoard(a);
                         SDL_Delay(500);
 						std::cout << std::endl;
+						SDL_Texture *tx0 = media.loadTexture("image/default.png", renderer);
+                        media.renderTexture(tx0, renderer, 620, 0, 580, 640);
+                        SDL_Texture *tx = media.loadTexture("image/turno.png", renderer);
+                        media.renderTexture(tx, renderer, 617, 0, 240, 640);
 						SDL_Texture* tx1 = media.loadTexture("image/xcell.png", renderer);
 						media.renderTexture(tx1, renderer, x*34+4+63+x/6, y*34+4+50, 25, 25);
 						media.playMusic("sound_effects/oplay.wav", audio);
@@ -91,6 +95,11 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 								a[y][x] = 2;
 								board.displayBoard(a);
 								std::cout << std::endl;
+
+								SDL_Texture *tx0 = media.loadTexture("image/default.png", renderer);
+							    media.renderTexture(tx0, renderer, 620, 0, 580, 640);
+							    SDL_Texture *tx = media.loadTexture("image/turnx.png", renderer);
+							    media.renderTexture(tx, renderer, 620, 0, 240, 640);
 								SDL_Texture* tx1 = media.loadTexture("image/ocell.png", renderer);
 
 								media.renderTexture(tx1, renderer, x*34+4+63+x/6, y*34+4+50, 25, 25);

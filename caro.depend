@@ -419,7 +419,7 @@
 	"game_func.h"
 	"constant.h"
 
-1713536541 source:c:\file codeblocks\caro\oneplayer.cpp
+1713581407 source:c:\file codeblocks\caro\oneplayer.cpp
 	"oneplayer.h"
 	"game_func.h"
 	"media.h"
@@ -440,7 +440,7 @@
 1713512964 c:\file codeblocks\caro\game_func.h
 	"constant.h"
 
-1713533854 source:c:\file codeblocks\caro\game_func.cpp
+1713582180 source:c:\file codeblocks\caro\game_func.cpp
 	<ctime>
 	"constant.h"
 	<iostream>
@@ -1352,7 +1352,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1713536488 source:c:\file codeblocks\caro\media.cpp
+1713621555 source:c:\file codeblocks\caro\media.cpp
 	"media.h"
 
 1713535810 c:\file codeblocks\caro\media.h

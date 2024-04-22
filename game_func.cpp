@@ -176,7 +176,7 @@ long Board::verticalAttackPoint(int x, int y,int a[][MAX])
 		}
 		else break;
 	}
-	if (verticalBlockX(a))
+	if (verticalBlockX(a) && enemies == 2)
     {
         totalVal = 0;
     }
@@ -225,7 +225,7 @@ long Board::horizonAttackPoint(int x, int y,int a[][MAX])
 		}
 		else break;
 	}
-    if (horizonBlockX(a))
+    if (horizonBlockX(a) && enemies == 2)
     {
         totalVal = 0;
     }
@@ -282,7 +282,7 @@ long Board::mainDiagonalAttackPoint(int x, int y,int a[][MAX])
 			break;
 		}
 	}
-    if (mainDiagonaBlockX(a))
+    if (mainDiagonaBlockX(a) && enemies == 2)
     {
         totalVal = 0;
     }
@@ -338,7 +338,7 @@ long Board::semiDiagonalAttackPoint(int x, int y,int a[][MAX])
 			break;
 		}
 	}
-	if (semiDiagonaBlockX(a))
+	if (semiDiagonaBlockX(a) && enemies == 2)
     {
         totalVal = 0;
     }
@@ -548,6 +548,7 @@ void Board::displayBoard(int a[][MAX]){
         }
         std::cout << std::endl;
     }
+    std::cout << std::endl;
 }
 
 
