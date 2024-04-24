@@ -407,7 +407,7 @@
 
 1710323866 c:\file codeblocks\caro\main.h
 
-1713544565 source:c:\file codeblocks\caro\twoplayer.cpp
+1713877993 source:c:\file codeblocks\caro\twoplayer.cpp
 	"twopplayer.h"
 	"media.h"
 
@@ -440,7 +440,7 @@
 1713512964 c:\file codeblocks\caro\game_func.h
 	"constant.h"
 
-1713777306 source:c:\file codeblocks\caro\game_func.cpp
+1713791808 source:c:\file codeblocks\caro\game_func.cpp
 	<ctime>
 	"constant.h"
 	<iostream>

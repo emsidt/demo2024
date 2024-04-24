@@ -192,9 +192,9 @@ long Board::verticalAttackPoint(int x, int y, int a[][MAX])
 		}
 		else break;
 	}
-	if (verticalBlockX(a) && enemies == 2)
+	if (verticalBlockX(a) && enemies >= 2)
     {
-        totalVal = 0;
+        totalVal -= defensePoint[enemies];
     }
     else
     {
@@ -241,9 +241,9 @@ long Board::horizonAttackPoint(int x, int y,int a[][MAX])
 		}
 		else break;
 	}
-    if (horizonBlockX(a) && enemies == 2)
+    if (horizonBlockX(a) && enemies >= 2)
     {
-        totalVal = 0;
+        totalVal -= defensePoint[enemies];
     }
     else
     {
@@ -298,9 +298,9 @@ long Board::mainDiagonalAttackPoint(int x, int y,int a[][MAX])
 			break;
 		}
 	}
-    if (mainDiagonaBlockX(a) && enemies == 2)
+    if (mainDiagonaBlockX(a) && enemies >= 2)
     {
-        totalVal = 0;
+        totalVal -= defensePoint[enemies];
     }
     else
     {
@@ -354,9 +354,9 @@ long Board::semiDiagonalAttackPoint(int x, int y,int a[][MAX])
 			break;
 		}
 	}
-	if (semiDiagonaBlockX(a) && enemies == 2)
+	if (semiDiagonaBlockX(a) && enemies >= 2)
     {
-        totalVal = 0;
+        totalVal -= defensePoint[enemies];
     }
     else
     {

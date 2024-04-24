@@ -134,7 +134,7 @@ int onePlayer(int a[][MAX], int &x, int &y, int &count,
 		goto botPLay;
 		break;
 	}
-
+	return -1;
 }
 
 Move findBestMove(int a[][MAX], Board &board)

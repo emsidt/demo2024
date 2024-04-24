@@ -25,6 +25,7 @@ bool Game::play()
 				game.mode = game.media.clickInMenu(game.x, game.y);
 				std::cout << game.mode << std::endl;
 				game.media.playMusic("sound_effects/mouseclick.wav", game.media.audio);
+
 				switch(game.mode)
 				{
 				case 1:
@@ -34,14 +35,18 @@ bool Game::play()
 					goto twoplayer;
 					break;
 				case 3:
-					game.isRunning = false;
-					return false;
+                    game.isRunning = false;
+                    return false;
 					break;
                 case 4:
                     Mix_PauseMusic();
+                    break;
                 default:
-                    Mix_ResumeMusic();		}
+                    Mix_ResumeMusic();
+                    break;
+                }
 			}
+			break;
 		case SDL_MOUSEMOTION:
 			media.renderMenu(media.texture, media.renderer, game.x, game.y);
 			break;

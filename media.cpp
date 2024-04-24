@@ -118,6 +118,7 @@ int Media::clickInMenu(int &x, int &y)
     {
         return 5;
     }
+	return -1;
 }
 
 int Media::clickInResult(int &x, int &y)
@@ -132,6 +133,7 @@ int Media::clickInResult(int &x, int &y)
 	//std::cout << "click mainmenu" << std::endl;
 	return 2;
 	}
+	return -1;
 
 }
 
@@ -141,6 +143,7 @@ int Media::clickInPlay(int &x, int &y)
 	{
 		return 1;
 	}
+	return -1;
 }
 
 void Media::renderPlay(SDL_Texture* texture, SDL_Renderer* renderer, int &x, int &y)
