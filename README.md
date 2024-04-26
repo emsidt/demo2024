@@ -18,7 +18,7 @@ Lớp học phần : LTNC-INT 2215_50
 
 ## Video hướng dẫn chơi và giới thiệu game
 
-- Youtube :
+- Youtube : [Demo game](https://www.youtube.com/watch?v=GlVg-pDI78o)
 
 ## MỤC LỤC
 
